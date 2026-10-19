@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación: Administración Robbins & Coulter</title>
+    <!-- Reveal.js core CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #f1c40f;
+            --secondary: #3498db;
+            --success: #2ecc71;
+            --danger: #e74c3c;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0b161b 0%, #132429 50%, #19323c 100%);
+            color: #ffffff;
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+        .reveal {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 38px;
+            font-weight: 500;
+            color: #ffffff !important;
+        }
+
+        .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5 {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: none;
+            letter-spacing: -0.5px;
+            color: #ffffff !important;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+        
+        /* Forzamos el color blanco en todos los textos base por si Reveal.js lo sobrescribe a negro */
+        .reveal p, .reveal li, .reveal span, .reveal strong, .reveal em, .reveal div {
+            color: #ffffff;
+        }
+
+        .reveal h2 { font-weight: 800; font-size: 2.2em; }
+        .reveal h3 { font-weight: 700; color: var(--primary) !important; font-size: 1.6em; }
+        .reveal h4 { font-weight: 600; font-size: 1.3em; }
+
+        .highlight { color: var(--primary) !important; font-weight: 700; }
+        
+        .glass-box {
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+            margin: 15px 0;
+            transition: transform 0.3s;
+        }
+        
+        .glass-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .reveal section img { 
+            background: none; 
+            border: none; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6); 
+            border-radius: 15px; 
+            max-height: 380px; 
+            object-fit: cover;
+            margin: 15px 0;
+        }
+
+        .reveal ul {
+            display: inline-block;
+            text-align: left;
+            margin-left: auto;
+            margin-right: auto;
+            width: fit-content;
+        }
+
+        .reveal li { 
+            margin-bottom: 20px; 
+            line-height: 1.3;
+        }
+        
+        .reveal li i {
+            color: var(--primary);
+            margin-right: 15px;
+            font-size: 0.9em;
+        }
+
+        .col-2 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            width: 100%;
+        }
+        
+        .col-2 > div {
+            flex: 1;
+        }
+
+        .small-text { font-size: 0.95em; line-height: 1.4; color: #ffffff !important; }
+        .tiny-text { font-size: 0.85em; line-height: 1.4; color: #f1f2f6 !important; }
+        
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.7em;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+        .badge-blue { background: rgba(52, 152, 219, 0.2); border: 1px solid var(--secondary); color: var(--secondary); }
+        .badge-red { background: rgba(231, 76, 60, 0.2); border: 1px solid var(--danger); color: var(--danger); }
+        .badge-green { background: rgba(46, 204, 113, 0.2); border: 1px solid var(--success); color: var(--success); }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            
+            <!-- Portada -->
+            <section>
+                <div class="glass-box" style="padding: 50px;">
+                    <h2>Administración</h2>
+                    <h4 style="color:var(--secondary); margin-bottom: 30px;"><i class="fas fa-compass"></i> Definir el Terreno de los Gerentes</h4>
+                    <p class="small-text" style="color: #cbd5e1;">Basado en el texto de Stephen P. Robbins & Mary Coulter</p>
+                    <hr style="border-color: rgba(255,255,255,0.1); margin: 20px 0;">
+                    <p class="tiny-text">Presentación Interactiva para Estudiantes</p>
+                </div>
+            </section>
+
+            <!-- Slide 2: Gerentes -->
+            <section>
+                <section>
+                    <h3><i class="fas fa-users-cog"></i> ¿Quiénes son los gerentes?</h3>
+                    <div class="glass-box">
+                        <p>Alguien que <strong>coordina y supervisa</strong> el trabajo de otras personas para lograr los objetivos de la organización.</p>
+                    </div>
+                </section>
+                <section>
+                    <h4>Estructura de Niveles Gerenciales</h4>
+                    <div class="col-2">
+                        <div>
+                            <ul style="list-style: none; padding: 0;">
+                                <li class="fragment fade-up"><i class="fas fa-chess-king"></i> <span class="highlight">Alta Dirección:</span> Estrategia y visión global (Ej. CEO, Presidente).</li>
+                                <li class="fragment fade-up"><i class="fas fa-chess-knight"></i> <span class="highlight">Nivel Medio:</span> Traducen metas a operativos (Ej. Líder de proyecto).</li>
+                                <li class="fragment fade-up"><i class="fas fa-chess-pawn"></i> <span class="highlight">Primera Línea:</span> Dirigen directamente al personal operativo.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Estructura">
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Slide 3: Administración y Ética -->
+            <section>
+                <section>
+                    <h3><i class="fas fa-balance-scale"></i> ¿Qué es la Administración?</h3>
+                    <div class="col-2">
+                        <div class="glass-box fragment fade-right">
+                            <div class="badge badge-blue">Eficiencia (Medios)</div>
+                            <h4 style="color: var(--secondary); margin-top:0;">Hacer bien las cosas</h4>
+                            <p class="tiny-text">Lograr resultados con el menor desperdicio de recursos (tiempo, dinero, materiales).</p>
+                        </div>
+                        <div class="glass-box fragment fade-left">
+                            <div class="badge badge-red">Eficacia (Fines)</div>
+                            <h4 style="color: var(--danger); margin-top:0;">Hacer las cosas correctas</h4>
+                            <p class="tiny-text">Asegurar que las actividades realizadas lleven directamente al cumplimiento de las metas.</p>
+                        </div>
+                    </div>
+                    <div class="glass-box fragment fade-up" style="margin-top: 20px; background: rgba(46, 204, 113, 0.15); border-color: var(--success);">
+                        <h4 style="color: var(--success); margin: 0;"><i class="fas fa-equals"></i> Eficiencia + Eficacia = Efectividad</h4>
+                    </div>
+                </section>
+                
+                <section>
+                    <h3 style="color: var(--success);"><i class="fas fa-futbol"></i> Ejemplo práctico en un partido</h3>
+                    <p class="small-text" style="margin-bottom: 20px;">Imagina un partido de 90 minutos:</p>
+                    
+                    <div class="glass-box fragment fade-up" style="padding: 20px; margin: 10px 0;">
+                        <p class="tiny-text" style="text-align: left; margin: 0;">
+                            <strong style="color: var(--secondary);"><i class="fas fa-stopwatch"></i> Eficiencia (El proceso y los recursos):</strong> Un mediocampista realiza 50 pases y acierta 49 en el menor tiempo posible, gastando la menor cantidad de energía y recuperando balones sin hacer faltas. Usa bien los recursos (tiempo, balón, desgaste físico).
+                        </p>
+                    </div>
+
+                    <div class="glass-box fragment fade-up" style="padding: 20px; margin: 10px 0; transition-delay: 0.1s;">
+                        <p class="tiny-text" style="text-align: left; margin: 0;">
+                            <strong style="color: var(--danger);"><i class="fas fa-bullseye"></i> Eficacia (El objetivo cumplido):</strong> El equipo gana el partido 1 a 0. No importa si tuvo poco la pelota o si jugó mal; el objetivo principal (obtener los tres puntos) se logró.
+                        </p>
+                    </div>
+
+                    <div class="glass-box fragment fade-up" style="padding: 20px; margin: 10px 0; border-color: var(--success); transition-delay: 0.2s;">
+                        <p class="tiny-text" style="text-align: left; margin: 0;">
+                            <strong style="color: var(--success);"><i class="fas fa-trophy"></i> Efectividad (La combinación perfecta):</strong> El equipo domina el juego, gasta la energía justa y necesaria (eficiencia) y además golea 4 a 0 al rival aprovechando cada oportunidad clara de gol (eficacia). Se logra la meta óptima y se cuidan los recursos.
+                        </p>
+                    </div>
+                </section>
+
+                <section>
+                    <h4><i class="fas fa-exclamation-triangle" style="color:var(--primary);"></i> Dilema Ético en la Eficiencia</h4>
+                    <p class="tiny-text">El uso de tecnología (ej. GPS en vehículos) mejora la eficiencia reduciendo el gasto de combustible.</p>
+                    <div class="glass-box">
+                        <p class="small-text" style="color: #ff7675;"><strong>El Problema:</strong> ¿Se invade la privacidad de los empleados? ¿Vale más el ahorro económico que la confianza del equipo de trabajo?</p>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Slide 4: Que hacen los gerentes -->
+            <section>
+                <section>
+                    <h2><i class="fas fa-project-diagram"></i> ¿Qué hacen los gerentes?</h2>
+                    <p class="small-text">El trabajo gerencial se analiza bajo 3 enfoques principales:</p>
+                    <div class="glass-box" style="margin-top: 20px; text-align: left; padding: 30px 50px; display: inline-block;">
+                        <h4 style="color: var(--success);"><i class="fas fa-sitemap"></i> 1. Funciones (Fayol)</h4>
+                        <h4 style="color: #9b59b6;"><i class="fas fa-masks-theater"></i> 2. Roles (Mintzberg)</h4>
+                        <h4 style="color: var(--primary);"><i class="fas fa-brain"></i> 3. Habilidades (Katz)</h4>
+                    </div>
+                </section>
+
+                <section>
+                    <h3 style="color: var(--success);"><i class="fas fa-sitemap"></i> 1. Funciones (Fayol)</h3>
+                    <div class="col-2" style="align-items: stretch;">
+                        <div class="glass-box fragment fade-up">
+                            <ul class="tiny-text" style="list-style:none; padding:0; margin:0;">
+                                <li><strong style="color:var(--primary);">Planeación:</strong> Establecer la meta y la ruta (estrategia) para llegar a ella.</li>
+                                <hr style="opacity: 0.2;">
+                                <li><strong style="color:var(--primary);">Organización:</strong> Asignar tareas, estructurar equipos y líneas de autoridad.</li>
+                            </ul>
+                        </div>
+                        <div class="glass-box fragment fade-up" style="transition-delay: 0.2s;">
+                            <ul class="tiny-text" style="list-style:none; padding:0; margin:0;">
+                                <li><strong style="color:var(--primary);">Dirección:</strong> Liderar, motivar, resolver conflictos y comunicar.</li>
+                                <hr style="opacity: 0.2;">
+                                <li><strong style="color:var(--primary);">Control:</strong> Medir el desempeño real vs esperado y corregir.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3 style="color: #9b59b6;"><i class="fas fa-masks-theater"></i> 2. Roles (Mintzberg)</h3>
+                    <div class="glass-box">
+                        <ul class="small-text" style="list-style: none; padding: 0;">
+                            <li class="fragment fade-right"><i class="fas fa-handshake"></i> <span style="color:#9b59b6; font-weight:bold;">Interpersonales:</span> Tareas ceremoniales y relación humana (Representante, Líder, Enlace).</li>
+                            <li class="fragment fade-right"><i class="fas fa-broadcast-tower"></i> <span style="color:#9b59b6; font-weight:bold;">Informativos:</span> Gestión de datos (Monitor, Difusor, Portavoz).</li>
+                            <li class="fragment fade-right"><i class="fas fa-gavel"></i> <span style="color:#9b59b6; font-weight:bold;">Decisorios:</span> Elecciones estratégicas (Emprendedor, Manejador de problemas, Asignador).</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h3 style="color: var(--primary);"><i class="fas fa-brain"></i> 3. Habilidades (Katz)</h3>
+                    <ul class="small-text" style="list-style: none; padding: 0;">
+                        <li class="glass-box fragment fade-up" style="margin: 10px 0; padding: 15px;"><span class="highlight">Conceptuales:</span> Pensamiento abstracto, visión holística. <em>(Crucial en Alta Dirección)</em></li>
+                        <li class="glass-box fragment fade-up" style="margin: 10px 0; padding: 15px;"><span class="highlight">Humanas:</span> Trabajo en equipo, empatía. <em>(Vital en TODOS los niveles)</em></li>
+                        <li class="glass-box fragment fade-up" style="margin: 10px 0; padding: 15px;"><span class="highlight">Técnicas:</span> Conocimiento especializado. <em>(Clave en Gerencia de Primera Línea)</em></li>
+                    </ul>
+                </section>
+            </section>
+
+            <!-- Slide 5: La Organización y Cambios -->
+            <section>
+                <section>
+                    <h3><i class="fas fa-building"></i> La Organización Moderna</h3>
+                    <p class="small-text">Acuerdo deliberado de personas con un propósito específico.</p>
+                    <div class="glass-box fragment zoom-in" style="margin-top: 20px;">
+                        <ul class="small-text" style="list-style: none; padding: 0; margin: 0;">
+                            <li><i class="fas fa-check-circle"></i> Propósito definido (metas claras).</li>
+                            <li><i class="fas fa-check-circle"></i> Formada por personas (capital humano).</li>
+                            <li><i class="fas fa-check-circle"></i> Estructura deliberada (flexible, abierta y adaptable).</li>
+                        </ul>
+                    </div>
+                </section>
+                <section>
+                    <h3><i class="fas fa-rocket"></i> Retos del Gerente Actual</h3>
+                    <div class="col-2">
+                        <div class="tiny-text" style="text-align: left;">
+                            <div class="glass-box fragment fade-right" style="padding: 15px; margin: 10px 0;">
+                                <span class="highlight"><i class="fas fa-laptop-code"></i> Digitalización:</span> Adaptación al trabajo remoto y ciberseguridad.
+                            </div>
+                            <div class="glass-box fragment fade-right" style="padding: 15px; margin: 10px 0;">
+                                <span class="highlight"><i class="fas fa-user-tag"></i> Cliente:</span> Todos impactan la satisfacción, no solo marketing.
+                            </div>
+                            <div class="glass-box fragment fade-right" style="padding: 15px; margin: 10px 0;">
+                                <span class="highlight"><i class="fas fa-lightbulb"></i> Innovación:</span> Explorar lo nuevo. El mayor riesgo es quedarse estático.
+                            </div>
+                        </div>
+                        <div>
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tecnologia">
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Slide 6: Casos Prácticos -->
+            <section>
+                <section>
+                    <h2><i class="fas fa-briefcase"></i> Casos Prácticos</h2>
+                    <p class="small-text">Resumen detallado de los escenarios reales</p>
+                </section>
+                
+                <section>
+                    <h4 style="color: var(--danger);"><i class="fas fa-store"></i> Caso 1: El dilema de Toys "R" Us</h4>
+                    <p class="tiny-text" style="color: #cbd5e1;"><strong>Contexto:</strong> Allyson Koteski adora el caos de administrar una tienda minorista con alta rotación y largas jornadas.</p>
+                    <div class="col-2" style="align-items: stretch;">
+                        <div class="glass-box fragment fade-up">
+                            <div class="badge badge-red">El Problema</div>
+                            <p class="tiny-text">A pesar de tener sueldos competitivos ($84,000), <strong>muy pocos universitarios aspiran al sector minorista</strong>. Retener talento es difícil.</p>
+                        </div>
+                        <div class="glass-box fragment fade-up" style="transition-delay: 0.2s;">
+                            <div class="badge badge-blue">Análisis</div>
+                            <p class="tiny-text">Para tener éxito, se requiere un altísimo nivel de <em>Habilidades Humanas (Katz)</em> y dominar <em>Roles Interpersonales (Mintzberg)</em>.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h4 style="color: var(--danger);"><i class="fas fa-shield-virus"></i> Caso 2: Cazadores de Virus (Symantec)</h4>
+                    <p class="tiny-text" style="color: #cbd5e1;"><strong>Contexto:</strong> El equipo global enfrenta 20,000 virus al mes. El ciclo de vida del producto es cortísimo y estresante.</p>
+                    <div class="col-2" style="align-items: stretch;">
+                        <div class="glass-box fragment fade-up">
+                            <div class="badge badge-red">El Problema</div>
+                            <p class="tiny-text">El "burnout" (agotamiento) por ataques globales. Tuvieron que crear un sistema rotativo global (Tokio -> Dublín -> Santa Mónica).</p>
+                        </div>
+                        <div class="glass-box fragment fade-up" style="transition-delay: 0.2s;">
+                            <div class="badge badge-green">Estrategia</div>
+                            <p class="tiny-text">Se aplicó <em>Planeación y Organización (Fayol)</em> bajo el lema: <strong>"Hacer de lo excitante algo aburrido"</strong>, eliminando el caos para crear procesos predecibles.</p>
+                        </div>
+                    </div>
+                </section>
+            </section>
+            
+            <!-- Slide 7: Historia de la Administración (Portada del Tema) -->
+            <section>
+                <div class="glass-box" style="padding: 50px;">
+                    <h4 style="color:var(--secondary); margin-bottom: 20px;"><i class="fas fa-hourglass-half"></i> Tema 4</h4>
+                    <h2>Historia de la Administración</h2>
+                    <h4 style="color:var(--primary);">Evolución y Enfoques (Estudio Profundo)</h4>
+                    <p class="small-text" style="color: #cbd5e1;">Análisis académico desde la Revolución Industrial hasta los enfoques contemporáneos</p>
+                </div>
+            </section>
+
+            <!-- Slide 8: Antecedentes -->
+            <section>
+                <h3><i class="fas fa-industry"></i> Contexto Histórico: Los Antecedentes</h3>
+                <div class="col-2" style="align-items: stretch; margin-top: 20px;">
+                    <div class="glass-box fragment fade-up">
+                        <div class="badge badge-blue">Adam Smith (1776)</div>
+                        <h4 style="color: var(--secondary); margin-top:0;">La División del Trabajo</h4>
+                        <p class="tiny-text" style="text-align: justify; margin-bottom: 10px;">En <em>"La riqueza de las naciones"</em>, Smith analizó la fabricación de alfileres. Postuló que dividir las tareas en pasos simples, repetitivos y especializados aumenta la destreza del trabajador, ahorra tiempo de transición y fomenta la creación de maquinaria.</p>
+                    </div>
+                    <div class="glass-box fragment fade-up" style="transition-delay: 0.2s;">
+                        <div class="badge badge-red">La Revolución Industrial</div>
+                        <h4 style="color: var(--danger); margin-top:0;">Sustitución de la Fuerza</h4>
+                        <p class="tiny-text" style="text-align: justify;">A finales del s. XVIII, las máquinas desplazaron la fuerza humana. La producción masiva en grandes fábricas creó un caos operativo que hizo imperiosa la necesidad de <strong>gerentes formales</strong> que planificaran, coordinaran y garantizaran el abasto continuo.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Slide 9: Administración Científica -->
+            <section>
+                <section>
+                    <h3><i class="fas fa-cogs"></i> I. La Administración Científica</h3>
+                    <div class="glass-box fragment fade-up">
+                        <p class="small-text">Surgió a principios del siglo XX por la escasez de mano de obra en EE.UU. Su objetivo era elevar drásticamente la productividad individual mediante métodos empíricos precisos.</p>
+                    </div>
+                    <div class="glass-box fragment fade-up" style="background: rgba(241, 196, 15, 0.1); border-color: var(--primary);">
+                        <h4 style="color: var(--primary); margin:0;">Foco: El trabajador individual y la tarea</h4>
+                        <p class="tiny-text">Buscaba la "única forma mejor" (the one best way) de ejecutar el trabajo en la planta.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h4 style="color: var(--secondary); margin-bottom: 20px;"><i class="fas fa-user-tie"></i> Frederick W. Taylor (El Padre)</h4>
+                    <div class="glass-box">
+                        <p class="tiny-text" style="text-align: justify; margin-bottom: 15px;">Propuso una <strong>"Revolución Mental"</strong>: Patrones y obreros debían dejar de pelear por las utilidades y cooperar para aumentarlas. Sustituyó el sentido común por la medición exacta.</p>
+                        <div class="col-2" style="align-items: flex-start; gap: 20px;">
+                            <div style="flex: 1.2;">
+                                <strong style="color:var(--primary); font-size: 0.8em;">Los 4 Principios Fundamentales:</strong>
+                                <ol class="tiny-text" style="padding-left: 20px; text-align: left;">
+                                    <li>Desarrollar una <strong>verdadera ciencia</strong> de la administración para cada tarea.</li>
+                                    <li><strong>Selección científica</strong> del trabajador según sus aptitudes.</li>
+                                    <li><strong>Educación y desarrollo</strong> científico del empleado.</li>
+                                    <li><strong>Cooperación estrecha y amistosa</strong> entre obreros y gerencia.</li>
+                                </ol>
+                            </div>
+                            <div style="flex: 1;">
+                                <strong style="color:var(--success); font-size: 0.8em;">Innovaciones:</strong>
+                                <ul class="tiny-text" style="padding-left: 20px; text-align: left;">
+                                    <li><strong>Estudios de tiempo:</strong> Descomposición analítica de movimientos.</li>
+                                    <li><strong>Tasas diferenciales:</strong> Pago superior al trabajador más eficiente que superaba la métrica base.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h4 style="color: var(--success);"><i class="fas fa-chart-line"></i> Gantt y los Gilbreth</h4>
+                    <div class="col-2" style="align-items: stretch;">
+                        <div class="glass-box fragment fade-up">
+                            <h5 style="color: var(--success); margin: 0;">Henry L. Gantt</h5>
+                            <hr style="opacity: 0.2; margin: 10px 0;">
+                            <ul class="tiny-text" style="padding-left: 15px; text-align: left;">
+                                <li style="margin-bottom: 10px;"><strong>Motivación Real:</strong> Descartó las tasas diferenciales de Taylor por generar poca motivación. Ideó un sistema de bono diario para el obrero y bonos extras para el <em>supervisor</em> si su equipo cumplía, fomentando la capacitación.</li>
+                                <li><strong>Gráfica de Gantt:</strong> Instrumento pionero de control visual de avance. Precursor de herramientas modernas como CPM y PERT.</li>
+                            </ul>
+                        </div>
+                        <div class="glass-box fragment fade-up" style="transition-delay: 0.2s;">
+                            <h5 style="color: var(--success); margin: 0;">Frank y Lillian Gilbreth</h5>
+                            <hr style="opacity: 0.2; margin: 10px 0;">
+                            <ul class="tiny-text" style="padding-left: 15px; text-align: left;">
+                                <li style="margin-bottom: 10px;"><strong>Enfoque Psicológico e Ingenieril:</strong> Equipo interdisciplinario. Analizaron micromovimientos usando cámaras de cine.</li>
+                                <li><strong>Movimiento y Fatiga:</strong> Al eliminar movimientos inútiles, reducían la fatiga, mejorando el estado de ánimo, los beneficios físicos del obrero y desarrollando su potencial humano total.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                
+                <section>
+                    <h4 style="color: var(--danger);"><i class="fas fa-car-side"></i> Caso de Estudio: La Fábrica Ford (1913)</h4>
+                    <div class="glass-box" style="background: rgba(231, 76, 60, 0.1); border-color: var(--danger);">
+                        <p class="tiny-text" style="text-align: justify; margin-bottom: 15px;">Aplicando la hiper-especialización taylorista, Ford implementó la <strong>línea de montaje en movimiento</strong> en Highland Park. El ensamblaje de un chasis bajó de 728 horas a solo 93 minutos.</p>
+                        <div class="col-2" style="gap: 15px;">
+                            <div style="background: rgba(46, 204, 113, 0.2); padding: 10px; border-radius: 8px;">
+                                <strong style="color: var(--success); font-size: 0.8em;"><i class="fas fa-check-circle"></i> Logros Productivos:</strong>
+                                <p class="tiny-text" style="margin: 5px 0;">Precio de autos accesible para las masas (reducción dramática de costos). Capacidad para duplicar el salario a $5 dólares diarios.</p>
+                            </div>
+                            <div style="background: rgba(231, 76, 60, 0.2); padding: 10px; border-radius: 8px;">
+                                <strong style="color: var(--danger); font-size: 0.8em;"><i class="fas fa-times-circle"></i> Retos Humanos:</strong>
+                                <p class="tiny-text" style="margin: 5px 0;">Trabajo extremadamente rutinario, repetitivo y agotador. Surgieron fuertes tensiones laborales y represión sindical de la gerencia hacia los obreros.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Slide 10: Teoría Clásica de la Organización -->
+            <section>
+                <section>
+                    <h3><i class="fas fa-sitemap"></i> II. Teoría Clásica de la Organización</h3>
+                    <div class="glass-box fragment fade-up">
+                        <p class="small-text">Mientras los "científicos" miraban el taller de abajo hacia arriba centrándose en la tarea individual, los "clásicos" miraron la <strong>organización en su totalidad</strong> de arriba hacia abajo, enfocándose en la administración gerencial integral.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <h4 style="color: var(--primary);"><i class="fas fa-user-tie"></i> Henri Fayol y sus 14 Principios</h4>
+                    <div class="glass-box" style="padding: 20px;">
+                        <p class="tiny-text" style="margin-bottom: 15px; color: #cbd5e1;">Considerado el fundador de la escuela clásica, defendía que la gerencia sigue patrones enseñables ("los gerentes se hacen").</p>
+                        <div class="col-2" style="align-items: flex-start; gap: 10px;">
+                            <ul class="tiny-text" style="padding-left: 20px; text-align: left; margin: 0; font-size: 0.65em;">
+                                <li style="margin-bottom: 5px;"><strong style="color:var(--primary);">1. División del trabajo:</strong> Especialización.</li>
+                                <li style="margin-bottom: 5px;"><strong style="color:var(--primary);">2. Autoridad:</strong> Formal (el cargo) y personal.</li>
+                                <li style="margin-bottom: 5px;"><strong style="color:var(--primary);">3. Disciplina:</strong> Respeto normativo.</li>
+                                <li style="margin-bottom: 5px;"><strong style="color:var(--primary);">4. Unidad de mando:</strong> Recibir órdenes de un solo superior.</li>
+                                <li style="margin-bottom: 5px;"><strong style="color:var(--primary);">5. Unidad de dirección:</strong> Un gerente y un plan por objetivo.</li>
+                                <li style="margin-bottom: 5px;"><strong style="color:var(--primary);">6. Subordinación del interés individual:</strong> La empresa primero.</li>
+                                <li><strong style="color:var(--primary);">7. Remuneración:</strong> Pago justo y equitativo.</li>
+                            </ul>
+                            <ul class="tiny-text" style="padding-left: 20px; text-align: left; margin: 0; font-size: 0.65em;">
+                                <li style="margin-bottom: 5px;"><strong style="color:var(--primary);">8. Centralización:</strong> Grado adecuado de toma de decisiones.</li>
+                                <li style="margin-bottom: 5px;"><strong style="color:var(--primary);">9. Jerarquía:</strong> Cadena escalar de mando clara.</li>
+                                <li style="margin-bottom: 5px;"><strong style="color:var(--primary);">10. Orden:</strong> Materiales y personal en el lugar correcto.</li>
+                                <li style="margin-bottom: 5px;"><strong style="color:var(--primary);">11. Equidad:</strong> Trato amable y justo por parte del gerente.</li>
+                                <li style="margin-bottom: 5px;"><strong style="color:var(--primary);">12. Estabilidad del personal:</strong> Baja rotación es sinónimo de eficiencia.</li>
+                                <li style="margin-bottom: 5px;"><strong style="color:var(--primary);">13. Iniciativa:</strong> Fomentar creatividad en planes.</li>
+                                <li><strong style="color:var(--primary);">14. Espíritu de grupo:</strong> <em>Esprit de corps</em> (Trabajo en equipo).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h4 style="color: var(--secondary);"><i class="fas fa-building"></i> Max Weber y la Burocracia</h4>
+                    <div class="glass-box fragment fade-up">
+                        <p class="tiny-text" style="text-align: justify; margin-bottom: 15px;">Sociólogo alemán que desarrolló el <strong>modelo ideal de Burocracia</strong> para administrar eficientemente organizaciones gigantescas (como la misma Ford) que necesitaban control riguroso.</p>
+                        <ul class="tiny-text" style="padding-left: 20px; text-align: left;">
+                            <li style="margin-bottom: 10px;"><strong style="color:var(--primary);">Selección Formal:</strong> Contratación y ascenso basados en la competencia técnica y mérito comprobado (rechazando el amiguismo y nepotismo).</li>
+                            <li style="margin-bottom: 10px;"><strong style="color:var(--primary);">Reglas explícitas:</strong> Procedimientos rigurosos por escrito mediante un razonamiento profundo y estandarizado.</li>
+                            <li style="margin-bottom: 10px;"><strong style="color:var(--primary);">Impersonalidad:</strong> Trato altamente eficiente sin consideraciones emocionales individuales que entorpezcan el proceso.</li>
+                            <li><strong style="color:var(--primary);">Estructura:</strong> Jerarquía piramidal clara y líneas de autoridad definidas con rigidez.</li>
+                        </ul>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Slide 11: Transición Humana -->
+            <section>
+                <section>
+                    <h3><i class="fas fa-hands-helping"></i> III. Transición al Comportamiento</h3>
+                    <div class="glass-box fragment fade-up">
+                        <p class="small-text">Los teóricos empezaron a notar deficiencias clave: el modelo mecánico clásico descuidaba que los trabajadores son seres sociales y emocionales. Nacen los precursores humanistas.</p>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="col-2" style="align-items: stretch;">
+                        <!-- Mary Parker Follett -->
+                        <div class="glass-box fragment fade-up" style="padding: 20px;">
+                            <h5 style="color: var(--danger); margin: 0;"><i class="fas fa-globe"></i> Mary Parker Follett</h5>
+                            <hr style="opacity: 0.2; margin: 10px 0;">
+                            <p class="tiny-text" style="text-align: justify; color: #cbd5e1;">Definió la administración tempranamente como <em>"el arte de hacer las cosas mediante personas"</em>.</p>
+                            <ul class="tiny-text" style="padding-left: 15px; text-align: left; font-size: 0.85em;">
+                                <li style="margin-bottom: 5px;"><strong>Fuerza de Grupo:</strong> Argumentaba que la persona se siente completa solo colaborando.</li>
+                                <li style="margin-bottom: 5px;"><strong>Modelo Holístico:</strong> Preparó la visión sistémica, incluyendo factores biológicos, políticos y económicos en el análisis empresarial.</li>
+                                <li><strong>Asociación natural:</strong> Creía que la jerarquía que giraba órdenes oscurecía el potencial humano.</li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Chester I. Barnard -->
+                        <div class="glass-box fragment fade-up" style="transition-delay: 0.2s; padding: 20px;">
+                            <h5 style="color: var(--danger); margin: 0;"><i class="fas fa-network-wired"></i> Chester I. Barnard</h5>
+                            <hr style="opacity: 0.2; margin: 10px 0;">
+                            <p class="tiny-text" style="text-align: justify; color: #cbd5e1;">Alto ejecutivo (Presidente de Bell, NJ) que enlazó los propósitos organizacionales con las necesidades humanas.</p>
+                            <ul class="tiny-text" style="padding-left: 15px; text-align: left; font-size: 0.85em;">
+                                <li style="margin-bottom: 5px;"><strong>Organización Informal:</strong> Descubrió que los grupos extraoficiales y sociales en el trabajo dictan el éxito operativo real de la gerencia formal.</li>
+                                <li style="margin-bottom: 5px;"><strong>Zona de Indiferencia:</strong> Es el nivel (rango) en que el empleado acepta órdenes sin cuestionarlas porque no atentan contra sus intereses.</li>
+                                <li><strong>Liderazgo Moral:</strong> El directivo debe inspirar a sus equipos hacia fines nobles.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                
+                <section>
+                    <h3><i class="fas fa-forward"></i> Hacia la Administración Contemporánea</h3>
+                    <div class="glass-box fragment fade-up">
+                        <ul class="small-text" style="text-align: left; padding-left: 20px; line-height: 1.6;">
+                            <li><strong style="color: var(--success);">Estudios de Hawthorne (Elton Mayo):</strong> Demostraron científicamente que el reconocimiento, la dinámica de grupo y sentirse observado/importante motivan más a un trabajador que los incentivos puramente económicos.</li>
+                            <li><strong style="color: var(--secondary);">Enfoque Cuantitativo:</strong> Empleo avanzado de matemáticas/estadísticas en la posguerra (impulsores de la Calidad Total - TQM).</li>
+                            <li><strong style="color: var(--primary);">Enfoques Actuales:</strong> Uso masivo del enfoque de Sistemas Abiertos (la empresa como un ente orgánico interactuando con su entorno) y el enfoque de Contingencias.</li>
+                        </ul>
+                    </div>
+                </section>
+            </section>
+            
+            <section>
+                <div class="glass-box" style="padding: 50px;">
+                    <h2>¡Gracias!</h2>
+                    <p class="tiny-text" style="color: #cbd5e1; margin-bottom: 30px;">Fin de la Presentación Interactiva</p>
+                    <a href="ADMINISTRACION ROBBINS COULTER.html" style="background: var(--secondary); color: white; padding: 15px 30px; text-decoration: none; border-radius: 30px; font-size: 0.5em; font-weight: bold; font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);"><i class="fas fa-arrow-left"></i> Volver a la lectura</a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Reveal.js JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            slideNumber: 'c/t',
+            transition: 'fade', // none/fade/slide/convex/concave/zoom
+            backgroundTransition: 'fade',
+            controls: true,
+            progress: true,
+            center: true,
+            width: 1024,
+            height: 768,
+            margin: 0.1,
+        });
+    </script>
+</body>
+</html>

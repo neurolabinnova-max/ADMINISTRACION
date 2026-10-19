@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelos de Administración - Profesor Msc. Jorge Vasco</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e3c72',
+                        secondary: '#2a5298',
+                        accent: '#f1c40f',
+                        dark: '#0f172a',
+                        cardBg: '#ffffff',
+                    },
+                    fontFamily: {
+                        sans: ['"Open Sans"', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f8fafc;
+            color: #334155;
+            line-height: 1.7;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .header-gradient {
+            background: linear-gradient(135deg, #0b161b 0%, #1e3c72 50%, #2a5298 100%);
+        }
+        .badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .card-shadow {
+            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+            transition: all 0.25s ease-in-out;
+        }
+        .card-shadow:hover {
+            box-shadow: 0 20px 30px -10px rgba(15, 23, 42, 0.12), 0 10px 15px -5px rgba(15, 23, 42, 0.06);
+            transform: translateY(-2px);
+        }
+        .highlight-text {
+            color: #1e3c72;
+            font-weight: 700;
+        }
+        .ethics-callout {
+            border-left: 5px solid #ef4444;
+            background: linear-gradient(to right, #fef2f2, #ffffff);
+        }
+        .system-callout {
+            border-left: 5px solid #0284c7;
+            background: linear-gradient(to right, #f0f9ff, #ffffff);
+        }
+        .contingency-callout {
+            border-left: 5px solid #8b5cf6;
+            background: linear-gradient(to right, #f5f3ff, #ffffff);
+        }
+        .neuro-callout {
+            border-left: 5px solid #10b981;
+            background: linear-gradient(to right, #ecfdf5, #ffffff);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #e2e8f0;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #94a3b8;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #64748b;
+        }
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            body {
+                background: white;
+                color: black;
+            }
+        }
+    </style>
+</head>
+<body class="custom-scrollbar">
+
+    <!-- Top Navigation Bar -->
+    <nav class="sticky top-0 z-50 bg-slate-900/95 backdrop-blur-md text-white border-b border-slate-800 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-3">
+                    <span class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-400 to-amber-200 text-slate-950 flex items-center justify-center text-lg shadow-md shrink-0">
+                        <i class="fas fa-sitemap"></i>
+                    </span>
+                    <div>
+                        <a href="#inicio" class="font-bold text-sm sm:text-base text-white hover:text-amber-400 transition tracking-tight block">Modelos de Administración</a>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center gap-1 text-sm font-medium">
+                    <a href="#linea-tiempo" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition">Línea Histórica</a>
+                    <a href="#clasico" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition">Clásico</a>
+                    <a href="#cuantitativo" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition">Cuantitativo</a>
+                    <a href="#conductual" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition">Conductual</a>
+                    <a href="#contemporaneo" class="px-3 py-1.5 rounded-lg text-amber-300 bg-slate-800 hover:text-white transition font-semibold">Sistemas & Contingencia</a>
+                    <a href="#neuromanagement" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition">Neuromanagement</a>
+                    <a href="#matriz" class="px-3 py-1.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 transition">Matriz</a>
+                </div>
+
+                <!-- Back links & Actions -->
+                <div class="flex items-center gap-2">
+                    <a href="ADMINISTRACION ROBBINS COULTER.html" class="hidden sm:inline-flex items-center gap-1.5 text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-700 transition" title="Ir a Resumen Robbins & Coulter">
+                        <i class="fas fa-book-open text-amber-400"></i> Cap. 1
+                    </a>
+                    <a href="PRESENTACION.html" class="hidden sm:inline-flex items-center gap-1.5 text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 px-3 py-1.5 rounded-lg border border-slate-700 transition" title="Ver Presentación de Diapositivas">
+                        <i class="fas fa-tv text-cyan-400"></i> Diapositivas
+                    </a>
+                    <button onclick="window.print()" class="no-print p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition" title="Imprimir / Guardar como PDF">
+                        <i class="fas fa-print"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Header -->
+    <header id="inicio" class="header-gradient text-white py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div class="absolute -right-20 -bottom-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -left-20 -top-20 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <div class="inline-flex items-center gap-2 bg-slate-800/80 border border-slate-700 text-amber-300 text-xs uppercase tracking-widest font-bold px-3 py-1 rounded-full mb-4">
+                <i class="fas fa-graduation-cap"></i> Compendio Académico Interactivo
+            </div>
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight mb-2 font-heading">
+                MODELOS DE ADMINISTRACIÓN
+            </h1>
+            <p class="text-sm sm:text-base font-bold tracking-widest text-amber-400 uppercase mb-6">
+                Jorge Vasco
+            </p>
+            <p class="text-lg sm:text-xl text-slate-200 max-w-3xl mx-auto font-light leading-relaxed mb-6">
+                Evolución histórica y epistemológica de las teorías organizacionales: desde la Administración Científica y la Teoría Clásica hasta los Modelos Contemporáneos (Sistemas y Contingencias de Robbins & Coulter) y la frontera del Neuromanagement.
+            </p>
+            
+            <div class="flex flex-wrap items-center justify-center gap-3 text-sm text-slate-300 mb-8">
+                <span class="bg-white/10 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-white/15">
+                    <i class="fas fa-user-tie text-amber-400 mr-1.5"></i> Cátedra: <strong>Profesor Msc. Jorge Vasco</strong>
+                </span>
+                <span class="bg-white/10 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-white/15">
+                    <i class="fas fa-university text-cyan-400 mr-1.5"></i> Basado en <strong>Robbins & Coulter (Cap. 2 / MH5)</strong>
+                </span>
+            </div>
+
+            <!-- Search and Filter Bar -->
+            <div class="max-w-xl mx-auto bg-white rounded-2xl p-2 shadow-2xl flex items-center gap-2 text-slate-800">
+                <i class="fas fa-search text-slate-400 pl-3"></i>
+                <input id="searchInput" type="text" placeholder="Buscar modelo, autor (Taylor, Fayol, Barnard, Braidot, Rock...), concepto..." class="w-full py-2 px-2 focus:outline-none text-sm text-slate-800 font-sans" onkeyup="filterContent()">
+                <button onclick="clearSearch()" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-600 px-3 py-2 rounded-xl transition font-semibold">
+                    Limpiar
+                </button>
+            </div>
+            <div id="searchCounter" class="text-xs text-slate-300 mt-2 font-mono"></div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <!-- 4 Summary Cards -->
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            <div class="bg-white p-6 rounded-2xl border-t-4 border-blue-600 card-shadow">
+                <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl mb-4">
+                    <i class="fas fa-cogs"></i>
+                </div>
+                <h2 class="text-lg font-bold text-slate-800 mb-2">1. Enfoque Clásico</h2>
+                <p class="text-sm text-slate-600 mb-3">Mirada interna centrada en la <strong>eficiencia del taller</strong>, las tareas individuales y las 14 reglas estructurales universales.</p>
+                <div class="text-xs font-semibold text-blue-600">
+                    Taylor · Gilbreth · Gantt · Fayol · Weber
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl border-t-4 border-emerald-600 card-shadow">
+                <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl mb-4">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <h2 class="text-lg font-bold text-slate-800 mb-2">2. Enfoque Cuantitativo</h2>
+                <p class="text-sm text-slate-600 mb-3">Modelos matemáticos, optimización lineal, estadística de inventarios y Gestión de Calidad Total (TQM).</p>
+                <div class="text-xs font-semibold text-emerald-600">
+                    Deming · Juran · Inv. Operativa
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl border-t-4 border-amber-600 card-shadow">
+                <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl mb-4">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h2 class="text-lg font-bold text-slate-800 mb-2">3. Enfoque Conductual</h2>
+                <p class="text-sm text-slate-600 mb-3">Prioriza al <strong>factor humano</strong>, el clima social informal, la motivación intrínseca y el liderazgo de grupo.</p>
+                <div class="text-xs font-semibold text-amber-600">
+                    Mayo · Follett · Barnard · Maslow · McGregor
+                </div>
+            </div>
+
+            <div class="bg-white p-6 rounded-2xl border-t-4 border-purple-600 card-shadow">
+                <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-xl mb-4">
+                    <i class="fas fa-diagram-project"></i>
+                </div>
+                <h2 class="text-lg font-bold text-slate-800 mb-2">4. Contemporáneo & Neuro</h2>
+                <p class="text-sm text-slate-600 mb-3">Sistemas abiertos interactuando con el entorno, lógica <strong>"Si... Entonces"</strong> y Neuromanagement.</p>
+                <div class="text-xs font-semibold text-purple-600">
+                    Barnard · Bertalanffy · Braidot · Rock
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: LÍNEA DE TIEMPO -->
+        <section id="linea-tiempo" class="mb-20">
+            <div class="text-center mb-10">
+                <span class="badge-pill bg-blue-100 text-blue-800 mb-2">Génesis Histórica</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 font-heading">Evolución de las Teorías y Paradigmas Administrativos</h2>
+                <p class="text-slate-600 max-w-2xl mx-auto mt-2 text-sm sm:text-base">Cómo los problemas del entorno productivo impulsaron la creación de modelos de coordinación humana cada vez más sofisticados.</p>
+            </div>
+
+            <div class="relative border-l-2 border-slate-300 ml-4 sm:ml-32 space-y-12">
+                <!-- Preindustrial -->
+                <div class="relative pl-8 sm:pl-12 group">
+                    <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-slate-700 text-white flex items-center justify-center text-xs font-bold ring-4 ring-white shadow">
+                        <i class="fas fa-monument"></i>
+                    </div>
+                    <span class="sm:absolute sm:-left-28 sm:top-2 text-xs font-black uppercase tracking-wider text-slate-500 font-mono block mb-1 sm:mb-0">Hasta 1776</span>
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 card-shadow">
+                        <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+                            <span>Grandes Obras & Adam Smith</span>
+                            <span class="text-xs bg-slate-100 text-slate-700 px-2 py-0.5 rounded font-mono">Pre-Industrial</span>
+                        </h3>
+                        <p class="text-sm text-slate-600 mt-2">
+                            Pirámides de Egipto (más de 100,000 personas coordinadas), la Gran Muralla China y el Arsenal de Venecia. En 1776, <strong>Adam Smith</strong> demostró en <em>La Riqueza de las Naciones</em> las enormes ventajas de la <strong>división y especialización del trabajo</strong> a través de la producción de alfileres.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Rev Industrial -->
+                <div class="relative pl-8 sm:pl-12 group">
+                    <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs font-bold ring-4 ring-white shadow">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <span class="sm:absolute sm:-left-28 sm:top-2 text-xs font-black uppercase tracking-wider text-blue-600 font-mono block mb-1 sm:mb-0">Siglo XIX</span>
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 card-shadow">
+                        <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+                            <span>Revolución Industrial y Nacimiento de la Fábrica</span>
+                            <span class="text-xs bg-blue-100 text-blue-700 px-2 py-0.5 rounded font-mono">Mecanización</span>
+                        </h3>
+                        <p class="text-sm text-slate-600 mt-2">
+                            La máquina de vapor impulsa la manufactura masiva. La producción migra de los talleres domésticos a grandes fábricas. Nace la imperiosa necesidad de gerentes profesionales que planifiquen, organicen y controlen los recursos.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Clásico -->
+                <div class="relative pl-8 sm:pl-12 group">
+                    <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-amber-500 text-white flex items-center justify-center text-xs font-bold ring-4 ring-white shadow">
+                        <i class="fas fa-stopwatch"></i>
+                    </div>
+                    <span class="sm:absolute sm:-left-28 sm:top-2 text-xs font-black uppercase tracking-wider text-amber-600 font-mono block mb-1 sm:mb-0">1911 - 1930</span>
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 card-shadow">
+                        <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+                            <span>Auge del Enfoque Clásico</span>
+                            <span class="text-xs bg-amber-100 text-amber-800 px-2 py-0.5 rounded font-mono">Taylor & Fayol</span>
+                        </h3>
+                        <p class="text-sm text-slate-600 mt-2">
+                            <strong>Frederick W. Taylor</strong> introduce los <em>Principios de la Administración Científica</em> (1911) buscando la "única y mejor manera" (<em>the one best way</em>). <strong>Henri Fayol</strong> formula en Francia los 14 principios universales y las 5 funciones directivas, mientras <strong>Max Weber</strong> conceptualiza la Burocracia ideal.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Conductual -->
+                <div class="relative pl-8 sm:pl-12 group">
+                    <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs font-bold ring-4 ring-white shadow">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <span class="sm:absolute sm:-left-28 sm:top-2 text-xs font-black uppercase tracking-wider text-emerald-600 font-mono block mb-1 sm:mb-0">1924 - 1950</span>
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 card-shadow">
+                        <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+                            <span>Estudios de Hawthorne y el Giro Humano</span>
+                            <span class="text-xs bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-mono">Elton Mayo</span>
+                        </h3>
+                        <p class="text-sm text-slate-600 mt-2">
+                            Western Electric y Elton Mayo demuestran que el reconocimiento, las normas de los grupos informales y la atención prestada al operario elevan la productividad mucho más que la iluminación o el salario físico individual.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Cuantitativo -->
+                <div class="relative pl-8 sm:pl-12 group">
+                    <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-indigo-600 text-white flex items-center justify-center text-xs font-bold ring-4 ring-white shadow">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <span class="sm:absolute sm:-left-28 sm:top-2 text-xs font-black uppercase tracking-wider text-indigo-600 font-mono block mb-1 sm:mb-0">1940 - 1970</span>
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 card-shadow">
+                        <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+                            <span>Investigación de Operaciones & Calidad Total</span>
+                            <span class="text-xs bg-indigo-100 text-indigo-800 px-2 py-0.5 rounded font-mono">TQM</span>
+                        </h3>
+                        <p class="text-sm text-slate-600 mt-2">
+                            Herramientas matemáticas y estadísticas perfeccionadas en la II Guerra Mundial se aplican a la empresa civil (programación lineal, EOQ, PERT). Deming y Juran sientan las bases de la Administración de la Calidad Total (TQM).
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Contemporáneo -->
+                <div class="relative pl-8 sm:pl-12 group">
+                    <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-cyan-600 text-white flex items-center justify-center text-xs font-bold ring-4 ring-white shadow">
+                        <i class="fas fa-diagram-project"></i>
+                    </div>
+                    <span class="sm:absolute sm:-left-28 sm:top-2 text-xs font-black uppercase tracking-wider text-cyan-600 font-mono block mb-1 sm:mb-0">1960 - 1990</span>
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 card-shadow border-l-4 border-l-cyan-600">
+                        <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+                            <span>Modelos Contemporáneos: Sistemas Abiertos & Contingencias</span>
+                            <span class="text-xs bg-cyan-100 text-cyan-800 px-2 py-0.5 rounded font-mono font-bold">Robbins & Coulter MH5</span>
+                        </h3>
+                        <p class="text-sm text-slate-600 mt-2">
+                            Se abandona la mirada exclusivamente intra-organizacional. Las organizaciones se conciben como <strong>sistemas abiertos</strong> que dependen de su entorno externo. Nace el enfoque de contingencias: la regla directiva del <strong>"Si... Entonces"</strong>.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Neuromanagement -->
+                <div class="relative pl-8 sm:pl-12 group">
+                    <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-purple-600 text-white flex items-center justify-center text-xs font-bold ring-4 ring-white shadow">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <span class="sm:absolute sm:-left-28 sm:top-2 text-xs font-black uppercase tracking-wider text-purple-600 font-mono block mb-1 sm:mb-0">Siglo XXI</span>
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200 card-shadow border-l-4 border-l-purple-600">
+                        <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
+                            <span>La Era del Neuromanagement & Agilidad</span>
+                            <span class="text-xs bg-purple-100 text-purple-800 px-2 py-0.5 rounded font-mono font-bold">Braidot & Rock</span>
+                        </h3>
+                        <p class="text-sm text-slate-600 mt-2">
+                            La neurociencia cognitiva entra de lleno a la alta dirección. Investigadores como <strong>Dr. Néstor Braidot</strong> (neuroplasticidad aplicada a la toma de decisiones) y <strong>Dr. David Rock</strong> (Modelo SCARF y neuroquímica del liderazgo) transforman la gestión del talento y el cambio organizacional.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCION 1: ENFOQUE CLÁSICO -->
+        <section id="clasico" class="mb-20 searchable-section">
+            <div class="border-b-2 border-slate-200 pb-4 mb-8 flex flex-wrap items-center justify-between gap-4">
+                <div>
+                    <span class="badge-pill bg-blue-100 text-blue-900">Módulo Teórico I</span>
+                    <h2 class="text-3xl font-extrabold text-slate-900 mt-1 font-heading">El Enfoque Clásico de la Administración</h2>
+                </div>
+                <span class="text-xs font-semibold px-3 py-1 bg-slate-200 text-slate-700 rounded-lg">Foco: Eficiencia Interna & Tareas</span>
+            </div>
+
+            <p class="text-slate-700 text-base sm:text-lg mb-8 leading-relaxed">
+                El enfoque clásico surge a comienzos del siglo XX para resolver la baja productividad industrial. Se divide en dos vertientes: la <strong>Administración Científica</strong> (enfoque en el puesto operativo de abajo hacia arriba: <em>bottom-up</em>) y la <strong>Teoría Administrativa General</strong> (enfoque en la estructura directiva de arriba hacia abajo: <em>top-down</em>).
+            </p>
+
+            <!-- Taylor, Gilbreth, Gantt -->
+            <div class="bg-gradient-to-r from-blue-900 to-indigo-950 text-white rounded-3xl p-6 sm:p-8 mb-10 shadow-xl">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="w-10 h-10 rounded-xl bg-amber-400 text-slate-950 flex items-center justify-center font-bold text-lg"><i class="fas fa-tools"></i></span>
+                    <div>
+                        <h3 class="text-2xl font-bold font-heading text-white">Escuela de la Administración Científica</h3>
+                        <p class="text-xs sm:text-sm text-slate-300">Uso del método científico para definir "la única y mejor manera" (<em>the one best way</em>) de ejecutar un trabajo.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+                    <div class="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/15">
+                        <div class="flex items-center justify-between mb-3">
+                            <h4 class="font-bold text-amber-300 text-lg">Frederick W. Taylor</h4>
+                            <span class="text-xs bg-amber-400/20 text-amber-200 px-2 py-0.5 rounded">1856-1915</span>
+                        </div>
+                        <p class="text-xs text-slate-200 mb-2 font-semibold">Padre de la Administración Científica</p>
+                        <p class="text-xs text-slate-200 mb-3">
+                            Propuso una <strong>"revolución mental"</strong> compartida entre patrones y obreros. Cronometró los movimientos manuales en la siderúrgica y estableció 4 principios: ciencia en vez de empirismo, selección científica del trabajador, cooperación sincera y división equitativa de tareas.
+                        </p>
+                        <div class="bg-black/25 rounded-xl p-3 text-[11px] text-slate-200">
+                            <strong>Aporte clave:</strong> Estudios de tiempos con cronómetro e incentivo por pieza producida (tasa diferencial).
+                        </div>
+                    </div>
+
+                    <div class="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/15">
+                        <div class="flex items-center justify-between mb-3">
+                            <h4 class="font-bold text-amber-300 text-lg">Frank & Lillian Gilbreth</h4>
+                            <span class="text-xs bg-amber-400/20 text-amber-200 px-2 py-0.5 rounded">Pioneros</span>
+                        </div>
+                        <p class="text-xs text-slate-200 mb-2 font-semibold">Movimientos y Ergonomía</p>
+                        <p class="text-xs text-slate-200 mb-3">
+                            Estudiaron los micromovimientos de la albañilería y la cirugía reduciendo el desgaste innecesario. Clasificaron las 17 acciones manuales elementales bautizadas como <strong>"Therbligs"</strong> (buscar, seleccionar, sostener, mover vacío, etc.).
+                        </p>
+                        <div class="bg-black/25 rounded-xl p-3 text-[11px] text-slate-200">
+                            <strong>Aporte humano:</strong> Lillian demostró cómo la fatiga y el estrés destruyen la productividad.
+                        </div>
+                    </div>
+
+                    <div class="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/15">
+                        <div class="flex items-center justify-between mb-3">
+                            <h4 class="font-bold text-amber-300 text-lg">Henry L. Gantt</h4>
+                            <span class="text-xs bg-amber-400/20 text-amber-200 px-2 py-0.5 rounded">1861-1919</span>
+                        </div>
+                        <p class="text-xs text-slate-200 mb-2 font-semibold">Control Visual de Tareas</p>
+                        <p class="text-xs text-slate-200 mb-3">
+                            Discípulo de Taylor que humanizó el sistema de incentivos mediante una bonificación diaria fija si el operario cumplía la cuota, además de premiar al supervisor si su equipo completo lo lograba.
+                        </p>
+                        <div class="bg-black/25 rounded-xl p-3 text-[11px] text-slate-200">
+                            <strong>El Diagrama de Gantt:</strong> Gráfica de barras que mide tareas contra tiempo. Sigue vigente en todo software de proyectos.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ford -->
+                <div class="mt-6 bg-amber-400 text-slate-950 rounded-2xl p-5 flex flex-col sm:flex-row items-center gap-4">
+                    <div class="text-4xl text-slate-900 shrink-0"><i class="fas fa-car-side"></i></div>
+                    <div>
+                        <h4 class="font-black text-sm uppercase tracking-wide">Caso Ford (1913): La Cadena de Montaje Continua</h4>
+                        <p class="text-xs sm:text-sm font-medium mt-1">
+                            Henry Ford aplicó al extremo los principios de Taylor en el ensamble del Modelo T: redujo el tiempo de fabricación de un chasis de <strong>12 horas a tan solo 93 minutos</strong> y duplicó el salario a $5 diarios (<em>Five-Dollar Day</em>), convirtiendo a los operarios en los primeros clientes de sus propios autos.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fayol y Weber -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
+                <!-- Fayol -->
+                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 card-shadow">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="badge-pill bg-indigo-100 text-indigo-900">Teoría General</span>
+                        <span class="text-xs font-mono text-slate-500">Henri Fayol (1841 - 1925)</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-800 font-heading mb-2">Henri Fayol y el Proceso Administrativo</h3>
+                    <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+                        Ingeniero y alto directivo francés. Afirmó que administrar es una actividad común a cualquier tipo de empresa y definió las 5 funciones directivas universales:
+                    </p>
+                    <div class="grid grid-cols-5 gap-1.5 text-center text-xs font-bold mb-4">
+                        <div class="bg-blue-600 text-white p-2 rounded-lg">Planear</div>
+                        <div class="bg-blue-700 text-white p-2 rounded-lg">Organizar</div>
+                        <div class="bg-blue-800 text-white p-2 rounded-lg">Dirigir</div>
+                        <div class="bg-indigo-700 text-white p-2 rounded-lg">Coordinar</div>
+                        <div class="bg-indigo-900 text-white p-2 rounded-lg">Controlar</div>
+                    </div>
+                    <p class="text-xs text-slate-500 italic mb-3">Formuló los 14 Principios Universales (División del trabajo, Autoridad, Disciplina, Unidad de Mando, Unidad de Dirección, Subordinación, Remuneración, Centralización, Jerarquía, Orden, Equidad, Estabilidad, Iniciativa y Espíritu de Grupo).</p>
+                </div>
+
+                <!-- Weber -->
+                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 card-shadow">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="badge-pill bg-purple-100 text-purple-900">Sociología Estructural</span>
+                        <span class="text-xs font-mono text-slate-500">Max Weber (1864 - 1920)</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-800 font-heading mb-2">Max Weber: La Burocracia Racional</h3>
+                    <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+                        Sociólogo alemán que diseñó una estructura organizacional basada en la racionalidad pura, para eliminar el nepotismo y la arbitrariedad en grandes organizaciones.
+                    </p>
+                    <div class="space-y-2 text-xs text-slate-700">
+                        <div class="p-2.5 bg-slate-50 rounded-xl border-l-4 border-purple-500">
+                            <strong>1. Jerarquía formal nítida:</strong> Cada oficina bajo la autoridad de una superior.
+                        </div>
+                        <div class="p-2.5 bg-slate-50 rounded-xl border-l-4 border-purple-500">
+                            <strong>2. Reglas escritas exhaustivas:</strong> Procedimientos estandarizados y formales.
+                        </div>
+                        <div class="p-2.5 bg-slate-50 rounded-xl border-l-4 border-purple-500">
+                            <strong>3. Impersonalidad en el trato:</strong> Decisiones sin favoritismos ni lazos afectivos.
+                        </div>
+                        <div class="p-2.5 bg-slate-50 rounded-xl border-l-4 border-purple-500">
+                            <strong>4. Promoción por mérito técnico:</strong> Empleo basado en cualificaciones objetivas.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCION 2: ENFOQUE CUANTITATIVO -->
+        <section id="cuantitativo" class="mb-20 searchable-section">
+            <div class="border-b-2 border-slate-200 pb-4 mb-8 flex flex-wrap items-center justify-between gap-4">
+                <div>
+                    <span class="badge-pill bg-emerald-100 text-emerald-900">Módulo Teórico II</span>
+                    <h2 class="text-3xl font-extrabold text-slate-900 mt-1 font-heading">El Enfoque Cuantitativo (Ciencia de la Administración)</h2>
+                </div>
+                <span class="text-xs font-semibold px-3 py-1 bg-slate-200 text-slate-700 rounded-lg">Foco: Matemáticas, Optimización & TQM</span>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 card-shadow">
+                    <h3 class="text-xl font-bold text-slate-800 mb-3 flex items-center gap-2">
+                        <i class="fas fa-calculator text-emerald-600"></i> Modelado Matemático e Investigación Operativa
+                    </h3>
+                    <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+                        Nacido en la II Guerra Mundial para coordinar convoyes navales y logística de armamento. Al terminar la guerra, sus creadores aplicaron estas herramientas en empresas como Ford y DuPont.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                            <strong class="text-emerald-700 block mb-1 font-mono text-sm">Programación Lineal:</strong>
+                            Asignación óptima de presupuestos, materias primas o transporte para maximizar margen o minimizar costos.
+                        </div>
+                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                            <strong class="text-emerald-700 block mb-1 font-mono text-sm">Lote Económico (EOQ):</strong>
+                            Fórmula matemática para determinar el momento y cantidad precisa de compra sin generar sobrecosto de almacenaje.
+                        </div>
+                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                            <strong class="text-emerald-700 block mb-1 font-mono text-sm">Teoría de Colas:</strong>
+                            Equilibrio entre el costo del personal de atención y el costo de frustración del cliente por esperar en fila.
+                        </div>
+                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-100">
+                            <strong class="text-emerald-700 block mb-1 font-mono text-sm">Ruta Crítica (PERT/CPM):</strong>
+                            Identificación de la cadena de actividades que no admiten retraso en la ejecución de megaproyectos.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-emerald-900 to-teal-950 text-white p-6 sm:p-8 rounded-3xl shadow-xl flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs uppercase tracking-widest font-bold text-emerald-300 block mb-2">Filosofía Empresarial</span>
+                        <h3 class="text-2xl font-bold font-heading mb-3">Calidad Total (TQM)</h3>
+                        <p class="text-xs text-slate-200 mb-4 leading-relaxed">
+                            Impulsada por <strong>W. Edwards Deming</strong> y <strong>Joseph Juran</strong>. Establece que la calidad no es una inspección final, sino una cultura de mejora continua (<em>Kaizen</em>).
+                        </p>
+                        <div class="space-y-2 text-xs text-slate-200">
+                            <div><i class="fas fa-check text-amber-400 mr-1.5"></i> Enfoque total en el cliente.</div>
+                            <div><i class="fas fa-check text-amber-400 mr-1.5"></i> Medición estadística rigurosa de procesos.</div>
+                            <div><i class="fas fa-check text-amber-400 mr-1.5"></i> Ciclo PHVA: Planear, Hacer, Verificar, Actuar.</div>
+                            <div><i class="fas fa-check text-amber-400 mr-1.5"></i> Empoderamiento del personal operativo.</div>
+                        </div>
+                    </div>
+                    <div class="mt-6 p-3 bg-white/10 rounded-xl text-xs text-emerald-200 border border-white/10">
+                        <i class="fas fa-award mr-1"></i> Respaldo del éxito industrial japonés de Toyota a partir de 1970.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCION 3: ENFOQUE CONDUCTUAL -->
+        <section id="conductual" class="mb-20 searchable-section">
+            <div class="border-b-2 border-slate-200 pb-4 mb-8 flex flex-wrap items-center justify-between gap-4">
+                <div>
+                    <span class="badge-pill bg-amber-100 text-amber-900">Módulo Teórico III</span>
+                    <h2 class="text-3xl font-extrabold text-slate-900 mt-1 font-heading">El Enfoque Conductual (Comportamiento Organizacional)</h2>
+                </div>
+                <span class="text-xs font-semibold px-3 py-1 bg-slate-200 text-slate-700 rounded-lg">Foco: Las Personas & Dinámica Social</span>
+            </div>
+
+            <!-- Pioneros y Hawthorne -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 card-shadow">
+                    <span class="text-xs font-mono text-slate-400">Finales s. XVIII</span>
+                    <h4 class="font-bold text-slate-900 mt-1">Robert Owen</h4>
+                    <p class="text-xs text-slate-600 mt-2">Defendió que cuidar las "máquinas vivientes" (los trabajadores) rinde mucho más que comprar máquinas de hierro. Redujo jornadas laborales inhumanas.</p>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 card-shadow">
+                    <span class="text-xs font-mono text-slate-400">1912</span>
+                    <h4 class="font-bold text-slate-900 mt-1">Hugo Münsterberg</h4>
+                    <p class="text-xs text-slate-600 mt-2">Padre de la psicología industrial: introdujo pruebas psicotécnicas para reclutamiento científico y estudio de la fatiga mental.</p>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 card-shadow">
+                    <span class="text-xs font-mono text-slate-400">1920s</span>
+                    <h4 class="font-bold text-slate-900 mt-1">Mary Parker Follett</h4>
+                    <p class="text-xs text-slate-600 mt-2">Pionera del liderazgo ético. Propuso el "poder CON" en lugar del "poder SOBRE", viendo a la empresa como una comunidad de cooperación.</p>
+                </div>
+                <div class="bg-white p-5 rounded-2xl border border-slate-200 card-shadow">
+                    <span class="text-xs font-mono text-slate-400">1938</span>
+                    <h4 class="font-bold text-slate-900 mt-1">Chester I. Barnard</h4>
+                    <p class="text-xs text-slate-600 mt-2">Presidente de New Jersey Bell. Concibió la empresa como un <em>sistema cooperativo</em>, descubrió el poder de los grupos informales y formuló la <strong>Zona de Indiferencia</strong>.</p>
+                </div>
+            </div>
+
+            <!-- Estudios de Hawthorne -->
+            <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 card-shadow mb-8">
+                <div class="flex flex-col lg:flex-row gap-6 items-center">
+                    <div class="lg:w-2/3">
+                        <span class="badge-pill bg-amber-100 text-amber-900 mb-2">Punto de Inflexión Histórico</span>
+                        <h3 class="text-2xl font-bold text-slate-800 font-heading mb-3">Los Estudios de Hawthorne (1924 - 1932)</h3>
+                        <p class="text-sm text-slate-600 mb-3 leading-relaxed">
+                            Dirigidos por <strong>Elton Mayo</strong> en Western Electric (Chicago). Al modificar la intensidad de la luz en la fábrica descubrieron algo asombroso: ¡la producción subió tanto cuando aumentaron la luz como cuando la redujeron casi a oscuras!
+                        </p>
+                        <div class="p-4 bg-amber-50 rounded-2xl border-l-4 border-amber-500 text-xs text-slate-700">
+                            <strong>El Efecto Hawthorne:</strong> Las personas trabajaban más y mejor porque se sentían observadas, escuchadas y valoradas como un grupo especial. Nace la certeza de que el trabajador es un <strong>Homo Socialis</strong> guiado por el reconocimiento, no un simple robot motivado por centavos.
+                        </div>
+                    </div>
+                    <div class="lg:w-1/3 bg-slate-900 text-white rounded-2xl p-6 text-center">
+                        <div class="text-amber-400 text-3xl mb-2"><i class="fas fa-lightbulb"></i></div>
+                        <h4 class="font-bold text-sm uppercase mb-2">Conclusión Clave</h4>
+                        <p class="text-xs text-slate-300">
+                            Las normas y presiones del grupo informal determinan el rendimiento del empleado por encima de las recompensas monetarias individuales.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Maslow y McGregor -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 card-shadow">
+                    <h4 class="font-bold text-slate-900 text-base mb-2 flex items-center gap-2">
+                        <i class="fas fa-layer-group text-blue-600"></i> Pirámide de Necesidades (Maslow)
+                    </h4>
+                    <p class="text-xs text-slate-600 mb-3">La motivación avanza en escalones: Fisiológicas &rarr; Seguridad &rarr; Sociales &rarr; Estima &rarr; Autorrealización.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 card-shadow">
+                    <h4 class="font-bold text-slate-900 text-base mb-2 flex items-center gap-2">
+                        <i class="fas fa-people-arrows text-indigo-600"></i> Teoría X vs. Teoría Y (McGregor)
+                    </h4>
+                    <p class="text-xs text-slate-600 mb-3"><strong>Teoría X:</strong> El jefe cree que la gente odia trabajar (microcontrol). <strong>Teoría Y:</strong> Cree que la gente busca autonomía y retos (empowerment).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCION 4: ENFOQUE CONTEMPORÁNEO (AMPLIADO SEGÚN IMÁGENES ROBBINS MH5) -->
+        <section id="contemporaneo" class="mb-20 searchable-section">
+            <div class="border-b-2 border-slate-200 pb-4 mb-8 flex flex-wrap items-center justify-between gap-4">
+                <div>
+                    <span class="badge-pill bg-cyan-100 text-cyan-900">Módulo Teórico IV · Fundamental Robbins & Coulter</span>
+                    <h2 class="text-3xl font-extrabold text-slate-900 mt-1 font-heading">Modelos Contemporáneos: Sistemas Abiertos & Contingencias</h2>
+                </div>
+                <span class="text-xs font-semibold px-3 py-1 bg-cyan-200 text-cyan-900 rounded-lg font-bold">Cap. 2 / MH5</span>
+            </div>
+
+            <!-- El Gran Cambio de Paradigma: De lo Interno a lo Externo -->
+            <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 card-shadow mb-10">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-2xl bg-cyan-100 text-cyan-700 flex items-center justify-center text-2xl shrink-0">
+                        <i class="fas fa-earth-americas"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-slate-800 font-heading">La Gran Ruptura de la Década de 1960: Mirar Hacia el Entorno Exterior</h3>
+                        <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+                            Como expone el texto de <strong>Robbins & Coulter</strong> (Módulo de Historia MH5), casi todos los modelos clásicos anteriores se enfocaban exclusivamente en los intereses que el gerente tiene <em>dentro</em> de los muros de la organización (eficiencia del operario, manuales de funciones y organigramas cerrados).
+                        </p>
+                        <p class="text-sm text-slate-600 mt-2 leading-relaxed">
+                            No obstante, a partir de la <strong>década de 1960</strong>, los investigadores administrativos descubrieron que una empresa no puede sobrevivir ignorando lo que ocurre en el <strong>entorno que está <em>fuera</em> de sus límites</strong> (los clientes, los competidores, las leyes gubernamentales y la tecnología). Así nacieron las dos grandes perspectivas contemporáneas: el <strong>modelo sistémico</strong> y el <strong>modelo de contingencias</strong>.
+                        </p>
+                        <div class="mt-4 p-4 rounded-2xl bg-slate-50 border border-slate-200 text-xs text-slate-700">
+                            <span class="font-bold text-cyan-800 block mb-1"><i class="fas fa-book-bookmark mr-1"></i> El Precursor Visionario: Chester Barnard (1938)</span>
+                            En su célebre libro <em>The Functions of an Executive</em> (publicado en 1938 y en español en 1959 como <em>Las funciones de los elementos dirigentes</em>), Chester Barnard —quien era el presidente de una compañía telefónica— fue el primer autor en plantear que las organizaciones funcionan como un <strong>sistema cooperativo</strong>. Sin embargo, no fue sino hasta 1960 que la teoría de sistemas se integró formalmente al estudio científico de la administración.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SUB-BLOQUE: MODELO SISTÉMICO Y FIGURA MH-7 -->
+            <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 card-shadow mb-10">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center gap-3">
+                        <span class="w-10 h-10 rounded-xl bg-cyan-600 text-white flex items-center justify-center font-bold text-lg"><i class="fas fa-network-wired"></i></span>
+                        <h3 class="text-2xl font-bold font-heading text-slate-900">1. La Organización como un Sistema Abierto</h3>
+                    </div>
+                    <span class="text-xs bg-slate-100 text-slate-600 px-3 py-1 rounded-full font-mono">Figura MH-7 Robbins</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 text-xs">
+                        <strong class="text-slate-800 font-bold block mb-1 text-sm"><i class="fas fa-lock text-slate-500 mr-1.5"></i> Sistemas Cerrados:</strong>
+                        Son aquellos conjuntos que <strong>no se ven influenciados por su entorno ni interactúan con él</strong>. En el mundo administrativo real, una empresa completamente cerrada está condenada a la quiebra inmediata porque carece de insumos externos y no tiene clientes que compren su producción.
+                    </div>
+                    <div class="p-4 rounded-2xl bg-cyan-50 border border-cyan-200 text-xs text-cyan-950">
+                        <strong class="text-cyan-900 font-bold block mb-1 text-sm"><i class="fas fa-door-open text-cyan-600 mr-1.5"></i> Sistemas Abiertos (Las Empresas Reales):</strong>
+                        Son sistemas que <strong>interactúan dinámicamente con su entorno y son influenciados por él</strong>. Toman insumos del exterior, los procesan y los devuelven transformados en bienes, servicios o resultados.
+                    </div>
+                </div>
+
+                <!-- DIAGRAMA INTERACTIVO FIGURA MH-7 -->
+                <div class="bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-950 text-white rounded-3xl p-6 sm:p-8 shadow-2xl mb-8">
+                    <div class="text-center mb-6">
+                        <span class="text-xs font-mono uppercase tracking-widest text-amber-400 font-bold block mb-1">Diagrama Conceptual Clave para el Estudiante</span>
+                        <h4 class="text-xl sm:text-2xl font-extrabold font-heading text-white">Figura MH-7: La Organización como un Sistema Abierto</h4>
+                        <p class="text-xs text-slate-300 max-w-xl mx-auto mt-1">Cómo fluyen los recursos desde el entorno, a través de la empresa y hacia la sociedad.</p>
+                    </div>
+
+                    <!-- Macro entorno caja -->
+                    <div class="border-2 border-dashed border-cyan-400/40 rounded-2xl p-5 relative bg-white/5">
+                        <div class="absolute -top-3 left-6 bg-cyan-600 text-white text-[10px] font-bold uppercase tracking-wider px-3 py-0.5 rounded-full">
+                            ENTORNO EXTERNO (Leyes, Clientes, Competidores, Proveedores, Economía)
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center my-4">
+                            <!-- Insumos -->
+                            <div class="bg-indigo-900/80 rounded-2xl p-4 border border-indigo-400/30 text-center">
+                                <div class="w-10 h-10 rounded-xl bg-indigo-500/30 text-indigo-300 flex items-center justify-center text-lg mx-auto mb-2">
+                                    <i class="fas fa-boxes-packing"></i>
+                                </div>
+                                <h5 class="font-bold text-indigo-200 text-sm uppercase tracking-wider mb-2">1. Insumos (Inputs)</h5>
+                                <ul class="text-xs text-slate-300 space-y-1 text-left list-disc list-inside">
+                                    <li>Materia prima</li>
+                                    <li>Recursos humanos</li>
+                                    <li>Capital financiero</li>
+                                    <li>Tecnología</li>
+                                    <li>Información de mercado</li>
+                                </ul>
+                            </div>
+
+                            <!-- Proceso de Transformacion -->
+                            <div class="bg-amber-500/20 rounded-2xl p-4 border-2 border-amber-400 text-center relative shadow-lg">
+                                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-400 text-slate-950 text-[10px] font-black uppercase px-2 py-0.5 rounded">
+                                    ORGANIZACIÓN
+                                </div>
+                                <div class="w-10 h-10 rounded-xl bg-amber-400 text-slate-950 flex items-center justify-center text-lg mx-auto mb-2 mt-1">
+                                    <i class="fas fa-gears"></i>
+                                </div>
+                                <h5 class="font-bold text-amber-300 text-sm uppercase tracking-wider mb-2">2. Proceso de Transformación</h5>
+                                <ul class="text-xs text-slate-200 space-y-1 text-left list-disc list-inside font-medium">
+                                    <li>Actividades laborales de empleados</li>
+                                    <li>Actividades gerenciales</li>
+                                    <li>Métodos tecnológicos y operativos</li>
+                                </ul>
+                            </div>
+
+                            <!-- Productos -->
+                            <div class="bg-emerald-900/80 rounded-2xl p-4 border border-emerald-400/30 text-center">
+                                <div class="w-10 h-10 rounded-xl bg-emerald-500/30 text-emerald-300 flex items-center justify-center text-lg mx-auto mb-2">
+                                    <i class="fas fa-truck-ramp-box"></i>
+                                </div>
+                                <h5 class="font-bold text-emerald-200 text-sm uppercase tracking-wider mb-2">3. Productos (Outputs)</h5>
+                                <ul class="text-xs text-slate-300 space-y-1 text-left list-disc list-inside">
+                                    <li>Bienes y servicios tangibles</li>
+                                    <li>Resultados financieros (utilidades)</li>
+                                    <li>Información transmitida</li>
+                                    <li>Resultados humanos (satisfacción)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Feedback Loop -->
+                        <div class="mt-4 pt-3 border-t border-cyan-400/20 text-center flex flex-col sm:flex-row items-center justify-center gap-2 text-xs text-amber-300 font-mono">
+                            <i class="fas fa-arrow-rotate-left text-base animate-spin text-amber-400"></i>
+                            <span><strong>RETROALIMENTACIÓN (Feedback):</strong> Los clientes evalúan los productos y la sociedad dicta nuevas leyes, alterando los futuros insumos.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Los 3 Conceptos Cruciales para el Estudiante de Administración -->
+                <h4 class="text-base font-bold text-slate-900 mb-4 font-heading">
+                    ¿Qué debe comprender un futuro administrador sobre el Modelo Sistémico? (Aportes del Texto):
+                </h4>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
+                    <!-- Concepto 1 -->
+                    <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 card-shadow">
+                        <div class="text-blue-600 text-2xl mb-2"><i class="fas fa-link"></i></div>
+                        <h5 class="font-bold text-slate-900 text-sm mb-1.5">1. Interdependencia Departamental</h5>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Las decisiones tomadas por un área terminan por afectar inevitablemente a las demás. <strong>Ejemplo del libro:</strong> Si el departamento de <em>Compras</em> no adquiere insumos en la cantidad y calidad apropiadas, el departamento de <em>Producción</em> será incapaz de efectuar su labor, provocando demoras y quejas de clientes.
+                        </p>
+                    </div>
+
+                    <!-- Concepto 2 -->
+                    <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 card-shadow">
+                        <div class="text-emerald-600 text-2xl mb-2"><i class="fas fa-bullseye"></i></div>
+                        <h5 class="font-bold text-slate-900 text-sm mb-1.5">2. Alineación con los Gustos del Cliente</h5>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Sin importar cuán eficiente sea Producción fabricando a bajo costo, el departamento de <em>Marketing</em> debe prever los cambios en los gustos de los consumidores y coordinar con <em>Diseño</em> para fabricar lo que la gente desea; de lo contrario, el desempeño general de la empresa colapsará.
+                        </p>
+                    </div>
+
+                    <!-- Concepto 3 -->
+                    <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 card-shadow">
+                        <div class="text-purple-600 text-2xl mb-2"><i class="fas fa-handshake"></i></div>
+                        <h5 class="font-bold text-slate-900 text-sm mb-1.5">3. Las Empresas NO Son Autosuficientes</h5>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Ninguna organización puede sobrevivir si desdeña los reglamentos gubernamentales, las relaciones comerciales con proveedores confiables o la opinión pública. La supervivencia depende de la armonía con las entidades externas.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Caso Práctico Starbucks (De la imagen 2) -->
+                <div class="system-callout p-5 rounded-2xl text-xs sm:text-sm text-slate-700">
+                    <div class="flex items-center gap-3 mb-2">
+                        <span class="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-xs"><i class="fas fa-mug-hot"></i></span>
+                        <h5 class="font-bold text-slate-900 text-sm uppercase tracking-wide">Ejemplo Práctico de Robbins: El Gerente de Turno de Starbucks</h5>
+                    </div>
+                    <p class="leading-relaxed">
+                        Considere la experiencia de un <strong>gerente de turno en una cafetería Starbucks</strong>. Su trabajo consiste en coordinar sincrónicamente las labores de quienes preparan bebidas en la barra, quienes atienden a los clientes en la ventanilla para automovilistas (<em>drive-thru</em>), quienes controlan la descarga de insumos (granos, leche fresca, vasos) y quienes garantizan que la tienda esté limpia. Si la ventanilla se atasca, la barra se satura y toda la cafetería sufre; el gerente no puede gestionar cada estación como una isla, sino como un <strong>sistema vivo interdependiente</strong>.
+                    </p>
+                </div>
+            </div>
+
+            <!-- SUB-BLOQUE: MODELO DE CONTINGENCIAS (SI... ENTONCES) -->
+            <div class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 card-shadow mb-10">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center gap-3">
+                        <span class="w-10 h-10 rounded-xl bg-purple-600 text-white flex items-center justify-center font-bold text-lg"><i class="fas fa-code-branch"></i></span>
+                        <h3 class="text-2xl font-bold font-heading text-slate-900">2. El Modelo de Contingencias (Modelo Situacional)</h3>
+                    </div>
+                    <span class="text-xs bg-purple-100 text-purple-900 font-bold px-3 py-1 rounded-full font-mono">Fórmula Condicional</span>
+                </div>
+
+                <p class="text-sm text-slate-600 mb-6 leading-relaxed">
+                    Los primeros teóricos pretendían crear principios de aplicación universal válidos para cualquier situación. Las investigaciones empíricas posteriores descubrieron numerosas excepciones. El <strong>modelo de contingencias</strong> reconoce que <strong>las organizaciones son diferentes entre sí</strong>: cada una enfrenta situaciones distintas y requiere formas de administración específicas.
+                </p>
+
+                <!-- RECUADRO "SI... ENTONCES" (De la imagen 3) -->
+                <div class="contingency-callout p-6 rounded-2xl mb-8">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="px-3 py-1 bg-purple-600 text-white font-mono font-black text-sm rounded-lg shadow">SI... ENTONCES</span>
+                        <h4 class="font-bold text-purple-950 text-base">La Lógica Condicional de la Gestión</h4>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-700 italic leading-relaxed mb-4">
+                        "Una buena forma de describir las contingencias es mediante la fórmula condicional: <strong>'Si ésta es la situación que enfrento, entonces ésta es la mejor forma en que puedo manejarla'</strong>."
+                    </p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                        <div class="p-3 bg-white rounded-xl border border-purple-200">
+                            <strong class="text-purple-900 block mb-1">Ejemplo 1: División del Trabajo</strong>
+                            Es muy valiosa y ampliamente utilizada, pero si las actividades se vuelven <em>demasiado especializadas</em>, surge el aburrimiento, la monotonía, la fatiga mental y aumentan los errores.
+                        </div>
+                        <div class="p-3 bg-white rounded-xl border border-purple-200">
+                            <strong class="text-purple-900 block mb-1">Ejemplo 2: La Burocracia</strong>
+                            Es sumamente deseable en organizaciones con tareas rutinarias y altamente reguladas (ej. un registro civil), pero resulta un fracaso total frente a entornos que exigen innovación y diseños flexibles.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4 Variables de Contingencia Más Utilizadas (Figura MH-8) -->
+                <h4 class="text-sm font-bold text-slate-800 uppercase tracking-wider mb-4 font-heading">
+                    Las 4 Variables de Contingencia Más Utilizadas (Robbins & Coulter - Figura MH-8):
+                </h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs mb-8">
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                        <span class="text-purple-600 font-bold block text-sm mb-1">1. Tamaño Organizacional</span>
+                        Al aumentar el número de empleados, crecen exponencialmente los problemas de coordinación y se requiere más estructura y descentralización formal.
+                    </div>
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                        <span class="text-purple-600 font-bold block text-sm mb-1">2. Tecnología de Operación</span>
+                        Las tecnologías rutinarias permiten estructuras mecanicistas; las tecnologías personalizadas e innovadoras exigen estructuras orgánicas.
+                    </div>
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                        <span class="text-purple-600 font-bold block text-sm mb-1">3. Incertidumbre Ambiental</span>
+                        Lo que funciona en un entorno estable y predecible puede ser catastrófico en un entorno altamente volátil, digital y competitivo.
+                    </div>
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                        <span class="text-purple-600 font-bold block text-sm mb-1">4. Diferencias Individuales</span>
+                        Los empleados difieren radicalmente en su deseo de crecimiento personal, su tolerancia a la ambigüedad y su necesidad de supervisión.
+                    </div>
+                </div>
+
+                <!-- El Entorno Actual y la Era de la Información (De la imagen 3) -->
+                <div class="bg-slate-900 text-white rounded-2xl p-6 text-xs sm:text-sm">
+                    <div class="flex items-center gap-2 text-amber-400 font-bold mb-2">
+                        <i class="fas fa-tower-broadcast"></i> La Era de la Información y el Desafío Gerencial Actual
+                    </div>
+                    <p class="text-slate-300 leading-relaxed mb-3">
+                        Desde que Samuel Morse inventó el telégrafo en 1837, la tecnología transformó los negocios, pero los cambios más radicales estallaron a finales del siglo XX con la era digital. 
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                        <div class="p-3 bg-slate-800 rounded-xl border border-slate-700">
+                            <strong class="text-cyan-300 block mb-1">Antes (Siglo XX):</strong>
+                            Las organizaciones utilizaban computadoras *mainframe* gigantescas, aisladas en habitaciones con aire acondicionado a las que sólo accedían unos pocos expertos técnicos.
+                        </div>
+                        <div class="p-3 bg-slate-800 rounded-xl border border-slate-700">
+                            <strong class="text-amber-300 block mb-1">Hoy (Siglo XXI):</strong>
+                            Dispositivos móviles en la palma de la mano de cualquier empleado, equipos en <strong>teletrabajo (home office)</strong> dispersos en distintas ciudades y coordinación digital continua 24/7.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCION 5: MODELOS SIGLO XXI & NEUROMANAGEMENT (INVESTIGACIÓN DE AUTORES) -->
+        <section id="neuromanagement" class="mb-20 searchable-section">
+            <div class="border-b-2 border-slate-200 pb-4 mb-8 flex flex-wrap items-center justify-between gap-4">
+                <div>
+                    <span class="badge-pill bg-purple-100 text-purple-900">Módulo Científico de Vanguardia</span>
+                    <h2 class="text-3xl font-extrabold text-slate-900 mt-1 font-heading">Neuromanagement: La Neurociencia en la Gestión Organizacional</h2>
+                </div>
+                <span class="text-xs font-semibold px-3 py-1 bg-amber-200 text-slate-900 rounded-lg font-bold">Investigadores de Referencia</span>
+            </div>
+
+            <p class="text-slate-700 text-base sm:text-lg mb-8 leading-relaxed">
+                El <strong>Neuromanagement</strong> (o neurogestión) es la disciplina que aplica los descubrimientos sobre el funcionamiento cerebral a la conducción de equipos, la toma de decisiones estratégicas y el liderazgo. Mientras los modelos tradicionales trataban al ser humano como una caja negra movida por recompensas externas, la neurociencia organizacional analiza los procesos biológicos, químicos e inconscientes del cerebro.
+            </p>
+
+            <!-- INVESTIGADORES PRINCIPALES DE NEUROMANAGEMENT -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
+                <!-- Dr. Néstor Braidot -->
+                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 card-shadow flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="badge-pill bg-purple-100 text-purple-900">Referente Iberoamericano</span>
+                            <span class="text-xs font-mono text-slate-500">Instituto Braidot</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-800 font-heading mb-2">Dr. Néstor Braidot</h3>
+                        <p class="text-xs font-semibold text-purple-700 mb-3">Pionero del Neuromanagement, Neurocoaching y Neuroliderazgo</p>
+                        <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+                            Catedrático y autor de más de 40 libros (entre ellos <em>Neuromanagement: Cómo utilizar el cerebro en la conducción y gestión de organizaciones</em>). Es la máxima autoridad en tender puentes entre la neurociencia cognitiva y la gerencia práctica en el mundo hispanohablante.
+                        </p>
+                        <div class="space-y-2.5 text-xs text-slate-700">
+                            <div class="p-3 bg-slate-50 rounded-xl border-l-4 border-purple-600">
+                                <strong>Neuroplasticidad Autodirigida:</strong> El cerebro directivo no es estático; puede reconectar circuitos neuronales a lo largo de toda la vida mediante el entrenamiento cognitivo y la gimnasia cerebral.
+                            </div>
+                            <div class="p-3 bg-slate-50 rounded-xl border-l-4 border-purple-600">
+                                <strong>Superación del Secuestro Amigdalino:</strong> Enseña a los directivos a modular las reacciones automáticas de ira o pánico del cerebro límbico, fortaleciendo el lóbulo prefrontal para una visión estratégica serena.
+                            </div>
+                            <div class="p-3 bg-slate-50 rounded-xl border-l-4 border-purple-600">
+                                <strong>Intuición Experta y Toma de Decisiones:</strong> Integración del hemisferio analítico con el hemisferio holístico para resolver problemas de alta incertidumbre.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-5 text-[11px] text-purple-900 bg-purple-50 p-2.5 rounded-xl font-medium">
+                        <i class="fas fa-microscope mr-1"></i> Modelo de Neuroentrenamiento y Desarrollo de Competencias Ejecutivas.
+                    </div>
+                </div>
+
+                <!-- Dr. David Rock y Modelo SCARF -->
+                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 card-shadow flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="badge-pill bg-blue-100 text-blue-900">NeuroLeadership Institute</span>
+                            <span class="text-xs font-mono text-slate-500">David Rock (2008)</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-800 font-heading mb-2">Dr. David Rock: El Modelo SCARF</h3>
+                        <p class="text-xs font-semibold text-blue-700 mb-3">Marco Neurobiológico de las Relaciones Humanas en el Trabajo</p>
+                        <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+                            David Rock descubrió que el cerebro humano procesa las situaciones sociales en el trabajo utilizando exactamente los mismos circuitos neuronales que procesan la <strong>supervivencia física</strong>: respondiendo con <em>Amenaza</em> (estrés, rechazo) o <em>Recompensa</em> (dopamina, compromiso).
+                        </p>
+
+                        <!-- Las 5 Dimensiones SCARF -->
+                        <div class="space-y-1.5 text-xs">
+                            <div class="flex items-center gap-2 p-2 rounded-lg bg-blue-50 text-blue-950 font-medium">
+                                <span class="w-6 h-6 rounded bg-blue-600 text-white flex items-center justify-center font-bold text-xs shrink-0">S</span>
+                                <div><strong>Status (Estatus):</strong> Necesidad de sentirse valorado y respetado frente a los demás.</div>
+                            </div>
+                            <div class="flex items-center gap-2 p-2 rounded-lg bg-blue-50 text-blue-950 font-medium">
+                                <span class="w-6 h-6 rounded bg-blue-600 text-white flex items-center justify-center font-bold text-xs shrink-0">C</span>
+                                <div><strong>Certainty (Certidumbre):</strong> Claridad del rumbo futuro para evitar que el cerebro gaste energía en ansiedad.</div>
+                            </div>
+                            <div class="flex items-center gap-2 p-2 rounded-lg bg-blue-50 text-blue-950 font-medium">
+                                <span class="w-6 h-6 rounded bg-blue-600 text-white flex items-center justify-center font-bold text-xs shrink-0">A</span>
+                                <div><strong>Autonomy (Autonomía):</strong> Sensación de libre albedrío y control sobre las decisiones propias.</div>
+                            </div>
+                            <div class="flex items-center gap-2 p-2 rounded-lg bg-blue-50 text-blue-950 font-medium">
+                                <span class="w-6 h-6 rounded bg-blue-600 text-white flex items-center justify-center font-bold text-xs shrink-0">R</span>
+                                <div><strong>Relatedness (Vinculación):</strong> Sentimiento de pertenencia y seguridad de estar con aliados y no rivales.</div>
+                            </div>
+                            <div class="flex items-center gap-2 p-2 rounded-lg bg-blue-50 text-blue-950 font-medium">
+                                <span class="w-6 h-6 rounded bg-blue-600 text-white flex items-center justify-center font-bold text-xs shrink-0">F</span>
+                                <div><strong>Fairness (Equidad):</strong> Percepción incuestionable de justicia y transparencia en las reglas.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-5 text-[11px] text-blue-900 bg-blue-50 p-2.5 rounded-xl font-medium">
+                        <i class="fas fa-brain mr-1"></i> Cuando un líder ataca el estatus o la autonomía, activa la amígdala e inutiliza la inteligencia del empleado.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dr. Paul Zak y Conexión con Laboratorio -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <!-- Paul Zak -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 card-shadow">
+                    <span class="badge-pill bg-emerald-100 text-emerald-900 mb-2">Neuroquímica Organizacional</span>
+                    <h4 class="font-bold text-slate-900 text-lg mb-1">Dr. Paul J. Zak: El Factor Confianza (Oxitocina)</h4>
+                    <p class="text-xs text-slate-600 mb-3 leading-relaxed">
+                        Investigador en Claremont Graduate University y autor de <em>Trust Factor: The Science of Creating High-Performance Companies</em>. Demostró empíricamente que las organizaciones con alta confianza liberan <strong>oxitocina</strong> en sus colaboradores, reduciendo el cortisol (estrés crónico), aumentando la retención en un 50% y elevando la productividad en un 76%.
+                    </p>
+                </div>
+
+                <!-- El Laboratorio de Neuromarketing (Profesor Jorge Vasco) -->
+                <div class="neuro-callout p-6 rounded-2xl text-xs sm:text-sm text-slate-700">
+                    <span class="badge-pill bg-emerald-600 text-white mb-2">Cátedra Profesor Msc. Jorge Vasco</span>
+                    <h4 class="font-bold text-slate-900 text-lg mb-1">Validación Biométrica en el Laboratorio</h4>
+                    <p class="leading-relaxed">
+                        En nuestro laboratorio de neuromarketing comprobamos experimentalmente estos postulados mediante <strong>Eye-Tracking (Tobii Pro)</strong> para evaluar la atención visual, <strong>FaceReader</strong> para la microexpresión de emociones y sensores de respuesta galvánica (GSR) para medir el impacto real de los estímulos de marca y de liderazgo.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCION 6: MATRIZ COMPARATIVA ACTUALIZADA -->
+        <section id="matriz" class="mb-20">
+            <div class="text-center mb-10">
+                <span class="badge-pill bg-slate-200 text-slate-800 mb-2">Síntesis Ejecutiva</span>
+                <h2 class="text-3xl font-extrabold text-slate-900 font-heading">Matriz Comparativa de Modelos Administrativos</h2>
+                <p class="text-slate-600 text-sm max-w-2xl mx-auto mt-2">Visión sinóptica de los paradigmas gerenciales, sus autores de referencia y sus premisas epistemológicas.</p>
+            </div>
+
+            <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden card-shadow">
+                <div class="overflow-x-auto custom-scrollbar">
+                    <table class="w-full text-left border-collapse text-xs sm:text-sm">
+                        <thead>
+                            <tr class="bg-slate-900 text-white uppercase text-[11px] tracking-wider font-mono">
+                                <th class="p-4 font-bold">Enfoque / Escuela</th>
+                                <th class="p-4 font-bold">Exponentes Principales</th>
+                                <th class="p-4 font-bold">Foco Central</th>
+                                <th class="p-4 font-bold">Visión del Ser Humano</th>
+                                <th class="p-4 font-bold">Principal Limitación</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 text-slate-700">
+                            <!-- Clásica -->
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-4 font-bold text-blue-900 flex items-center gap-2">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-blue-600"></span> Adm. Científica
+                                </td>
+                                <td class="p-4 font-medium">F. W. Taylor, H. Gantt, F. & L. Gilbreth</td>
+                                <td class="p-4">Eficiencia en la tarea individual, tiempos y movimientos, estandarización.</td>
+                                <td class="p-4 font-medium text-slate-900"><em>Homo Economicus:</em> Motivado exclusivamente por el salario monetario.</td>
+                                <td class="p-4 text-rose-600">Visión mecanicista; ignoró la fatiga psicológica y la creatividad del operario.</td>
+                            </tr>
+
+                            <!-- Teoría Clásica y Burocracia -->
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-4 font-bold text-indigo-900 flex items-center gap-2">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-indigo-600"></span> Teoría General & Burocracia
+                                </td>
+                                <td class="p-4 font-medium">Henri Fayol, Max Weber</td>
+                                <td class="p-4">Estructura formal, 14 principios universales, jerarquía y normativas escritas.</td>
+                                <td class="p-4 font-medium text-slate-900">Operador formal subordinado al organigrama y a las reglas impersonales.</td>
+                                <td class="p-4 text-rose-600">Rigidez extrema ante la innovación; tendencia a la lentitud burocrática.</td>
+                            </tr>
+
+                            <!-- Cuantitativo -->
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-4 font-bold text-emerald-900 flex items-center gap-2">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-600"></span> Enfoque Cuantitativo
+                                </td>
+                                <td class="p-4 font-medium">W. E. Deming, J. Juran, Inv. de Operaciones</td>
+                                <td class="p-4">Modelado matemático, optimización lineal, estadística y Calidad Total (TQM).</td>
+                                <td class="p-4 font-medium text-slate-900">Tomador de decisiones analítico basado estrictamente en métricas y datos.</td>
+                                <td class="p-4 text-rose-600">Dificultad para modelar factores humanos intangibles como motivación o clima emocional.</td>
+                            </tr>
+
+                            <!-- Conductual -->
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-4 font-bold text-amber-900 flex items-center gap-2">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-amber-600"></span> Conductual / Relaciones Humanas
+                                </td>
+                                <td class="p-4 font-medium">Elton Mayo, Chester Barnard, Mary P. Follett, Maslow, McGregor</td>
+                                <td class="p-4">El factor humano, normas de grupo informal, motivación intrínseca y liderazgo.</td>
+                                <td class="p-4 font-medium text-slate-900"><em>Homo Socialis:</em> Ser relacional movido por pertenencia, reconocimiento y estatus.</td>
+                                <td class="p-4 text-rose-600">Subestimó en ocasiones la importancia del rigor técnico en los procesos de fábrica.</td>
+                            </tr>
+
+                            <!-- Contemporáneo -->
+                            <tr class="hover:bg-slate-50 transition">
+                                <td class="p-4 font-bold text-cyan-900 flex items-center gap-2">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-cyan-600"></span> Sistemas & Contingencias
+                                </td>
+                                <td class="p-4 font-medium">L. von Bertalanffy, Chester Barnard, Robbins & Coulter</td>
+                                <td class="p-4">Organización como sistema abierto que interactúa con el entorno; regla "Si... Entonces".</td>
+                                <td class="p-4 font-medium text-slate-900">Agente complejo sujeto a contingencias de tamaño, tecnología, entorno y personalidad.</td>
+                                <td class="p-4 text-rose-600">Complejidad para definir recetas fijas; exige constante diagnóstico situacional.</td>
+                            </tr>
+
+                            <!-- Neuromanagement (Actualizado con autores de referencia) -->
+                            <tr class="hover:bg-slate-50 transition bg-purple-50/70">
+                                <td class="p-4 font-bold text-purple-950 flex items-center gap-2">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-purple-700"></span> Neuromanagement & Neurogestión
+                                </td>
+                                <td class="p-4 font-bold text-purple-950">
+                                    Dr. Néstor Braidot, Dr. David Rock (Modelo SCARF), Dr. Paul J. Zak
+                                </td>
+                                <td class="p-4">Procesos neurobiológicos inconscientes, neuroplasticidad, modulación de amenazas y toma de decisiones.</td>
+                                <td class="p-4 font-medium text-purple-950"><em>Homo Neurobiologicus:</em> Ser guiado por circuitos de amenaza vs. recompensa y neuroquímica.</td>
+                                <td class="p-4 text-purple-800">Requiere rigor científico para evitar la pseudociencia y un estricto marco ético.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-3">
+                <span class="px-3 py-1.5 rounded-xl bg-amber-400 text-slate-950 font-black text-xs">Jorge Vasco</span>
+                <div>
+                    <p class="font-bold text-white text-base">Modelos de Administración - Jorge Vasco</p>
+                    <p class="text-xs text-slate-400">Profesor Msc. Jorge Vasco</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-4 text-xs">
+                <a href="ADMINISTRACION ROBBINS COULTER.html" class="hover:text-amber-400 transition">Capítulo 1</a>
+                <span>·</span>
+                <a href="PRESENTACION.html" class="hover:text-amber-400 transition">Presentación</a>
+                <span>·</span>
+                <a href="#inicio" class="hover:text-amber-400 transition">Volver arriba</a>
+            </div>
+
+            <p class="text-xs text-slate-400">
+                Basado en Robbins & Coulter (MH5) y aportes de investigación en Neuromanagement.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        function filterContent() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            const sections = document.querySelectorAll('.searchable-section');
+            let matchCount = 0;
+
+            if (query === "") {
+                sections.forEach(sec => sec.style.display = 'block');
+                document.getElementById('searchCounter').innerText = "";
+                return;
+            }
+
+            sections.forEach(section => {
+                const text = section.innerText.toLowerCase();
+                if (text.includes(query)) {
+                    section.style.display = 'block';
+                    matchCount++;
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+
+            document.getElementById('searchCounter').innerText = 
+                `Se encontraron ${matchCount} módulo(s) relacionado(s) con "${query}"`;
+        }
+
+        function clearSearch() {
+            document.getElementById('searchInput').value = "";
+            filterContent();
+        }
+    </script>
+</body>
+</html>

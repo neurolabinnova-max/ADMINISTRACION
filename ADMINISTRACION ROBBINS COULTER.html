@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración - Robbins & Coulter: Resumen Extendido</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #2980b9;
+            --highlight-color: #e74c3c;
+            --bg-color: #f9fbfd;
+            --text-color: #333333;
+            --card-bg: #ffffff;
+        }
+        body {
+            font-family: 'Merriweather', 'Georgia', serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--primary-color);
+        }
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #fff;
+            padding: 4rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        header h1 {
+            color: #fff;
+            margin: 0;
+            font-size: 3rem;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        header .subtitle {
+            font-size: 1.4rem;
+            font-weight: 300;
+            margin-top: 15px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+        header .profesor {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #f1c40f;
+            margin-top: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 25px;
+        }
+        p {
+            font-size: 1.15rem;
+            margin-bottom: 1.5rem;
+            color: #444;
+            text-align: justify;
+        }
+        .section-title {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-top: 3rem;
+            font-size: 2.2rem;
+        }
+        .sub-title {
+            color: var(--secondary-color);
+            font-size: 1.6rem;
+            margin-top: 2.5rem;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+        }
+        .ethics-box {
+            background-color: #fdf2e9;
+            border-left: 6px solid var(--highlight-color);
+            padding: 25px;
+            margin: 2.5rem 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .ethics-box h3 {
+            color: var(--highlight-color);
+            margin-top: 0;
+            font-size: 1.4rem;
+        }
+        .concept-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            padding: 35px;
+            margin-bottom: 2.5rem;
+        }
+        .concept-card ul {
+            padding-left: 20px;
+        }
+        .concept-card li {
+            margin-bottom: 15px;
+            font-size: 1.15rem;
+        }
+        .highlight-text {
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 2rem;
+        }
+        .manager-card, .case-card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-top: 5px solid;
+        }
+        .manager-card { border-top-color: #27ae60; }
+        .case-card { border-top-color: #8e44ad; }
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: var(--primary-color);
+            color: #ecf0f1;
+            margin-top: 4rem;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        
+        /* Estilos para las imágenes integradas */
+        .img-right {
+            float: right;
+            margin: 10px 0 20px 30px;
+            max-width: 350px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        .img-left {
+            float: left;
+            margin: 10px 30px 20px 0;
+            max-width: 350px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        .img-center {
+            display: block;
+            margin: 30px auto;
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        .figure-center {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .figure-center figcaption {
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 0.95rem;
+            color: #7f8c8d;
+            margin-top: 12px;
+            font-style: italic;
+        }
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+        .presentation-btn {
+            display: inline-block;
+            background-color: var(--highlight-color);
+            color: #fff;
+            padding: 12px 30px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 25px;
+            font-weight: bold;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .presentation-btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+        }
+        .meta-btn {
+            background-color: #8e44ad;
+            margin-left: 15px;
+        }
+        .meta-btn:hover {
+            background-color: #732d91;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            header h1 { font-size: 2.2rem; }
+            .img-right, .img-left {
+                float: none;
+                display: block;
+                margin: 20px auto;
+                max-width: 100%;
+            }
+            .meta-btn { margin-left: 0; margin-top: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Administración: Definir el Terreno de los Gerentes</h1>
+    <div class="subtitle">ADMINISTRACIÓN STEPHEN P. ROBBINS & MARY COULTER</div>
+    <div class="profesor">Profesor: Msc Jorge Vasco</div>
+    <div style="margin-top: 25px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
+        <a href="MODELOS DE ADMINISTRACION JORGE VASCO.html" class="presentation-btn" style="margin-top: 0; background-color: #27ae60;" target="_blank">Modelos de Administración - Jorge Vasco</a>
+        <a href="PRESENTACION.html" class="presentation-btn" style="margin-top: 0;" target="_blank">Ver Presentación</a>
+        <a href="https://www.slideshare.net/slideshow/resumen-del-libro-la-meta-15961515/15961515" class="presentation-btn meta-btn" style="margin-top: 0; margin-left: 0;" target="_blank">Resumen Libro: La Meta</a>
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- PUNTO 1 EXTENDIDO: CONCEPTOS FUNDAMENTALES -->
+    <div class="concept-card clearfix">
+        <h2 class="section-title">1. Comprendiendo la Administración y a los Gerentes</h2>
+        
+        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Reunión de gerentes y equipo" class="img-right">
+        
+        <p>El estudio de la administración es fundamental porque todos, tarde o temprano, seremos gerentes o seremos dirigidos por uno. La primera parte de la obra de Robbins y Coulter nos introduce al panorama general de qué implica exactamente el trabajo gerencial, cómo ha evolucionado y cuáles son las responsabilidades que hacen que una organización funcione correctamente.</p>
+
+        <h3 class="sub-title">¿Quiénes son los gerentes?</h3>
+        <p>Solía ser muy sencillo definir quiénes eran los gerentes: eran los miembros de la organización que les decían a otros qué hacer y cómo hacerlo. Era simple diferenciar a los gerentes de los empleados sin una posición gerencial. Sin embargo, en el cambiante entorno actual, esa distinción se ha vuelto más borrosa. Muchos empleados con trabajos de carácter operativo ahora asumen responsabilidades gerenciales, especialmente en estructuras basadas en equipos.</p>
+        <p>Entonces, ¿cómo definimos a un gerente en la actualidad? Un gerente es <span class="highlight-text">alguien que coordina y supervisa el trabajo de otras personas para que se logren los objetivos de la organización.</span> El trabajo de un gerente no se trata de sus logros personales, sino de ayudar a otros a realizar su trabajo. Los gerentes suelen clasificarse en tres niveles dentro de organizaciones con estructuras tradicionales (en forma de pirámide):</p>
+        <ul>
+            <li><strong>Gerentes de primera línea (o supervisores):</strong> Se encuentran en el nivel más bajo. Dirigen el trabajo del personal operativo, aquellos directamente involucrados con la producción o el servicio al cliente. Su rol es asegurar que el trabajo diario se ejecute adecuadamente.</li>
+            <li><strong>Gerentes de nivel medio:</strong> Incluye cargos como gerentes de tienda, líderes de proyecto o gerentes de distrito. Administran el trabajo de los gerentes de primera línea y se encargan de traducir las metas establecidas por la alta dirección en detalles operativos.</li>
+            <li><strong>Gerentes de nivel alto (alta dirección):</strong> Se encuentran en la cima. Tienen títulos como director ejecutivo (CEO), presidente o vicepresidente. Son responsables de tomar las decisiones que afectan a toda la empresa, de establecer las estrategias generales y de dirigir la visión de la organización.</li>
+        </ul>
+
+        <h3 class="sub-title">¿Qué es la administración?</h3>
+        <p>La administración es a lo que se dedican los gerentes. Implica coordinar y supervisar las actividades laborales de otros, para que se realicen de manera <span class="highlight-text">eficiente</span> y <span class="highlight-text">eficaz</span>. La administración no significa hacer el trabajo uno mismo, sino lograr que otros lo hagan de la mejor forma posible. Se basa en dos conceptos críticos:</p>
+        <ul>
+            <li><strong>Eficiencia (Hacer bien las cosas):</strong> Se refiere a obtener los mejores resultados a partir de la menor cantidad de recursos. Puesto que los recursos (dinero, personas, equipo) son escasos, los gerentes deben esforzarse en no desperdiciarlos. La eficiencia trata sobre los <em>medios</em>.</li>
+            <li><strong>Eficacia (Hacer las cosas correctas):</strong> Implica realizar las actividades de tal manera que se logren los objetivos organizacionales. Tiene que ver con los <em>fines</em>.</li>
+        </ul>
+        <p>Una mala administración suele deberse a la ineficiencia y a la ineficacia. Las organizaciones exitosas logran tanto alta eficiencia (bajo desperdicio) como alta eficacia (altos logros).</p>
+
+        <!-- CUADRO DE ÉTICA -->
+        <div class="ethics-box">
+            <h3>Razonamiento crítico sobre la Ética</h3>
+            <p>La búsqueda de la eficiencia y la eficacia puede plantear dilemas éticos interesantes para los gerentes modernos. Un ejemplo claro expuesto en el texto es el uso de sistemas de Posicionamiento Global (GPS) instalados en los vehículos gubernamentales o empresariales. Esta tecnología permite a los gerentes rastrear las rutas y el uso de combustible de sus empleados, logrando ahorrar enormes cantidades de recursos (por ejemplo, 14,000 galones de combustible en pocos meses).</p>
+            <p><strong>El Dilema:</strong> ¿Qué tan rápido deben buscar los gerentes la eficiencia? Aunque la gerencia justifique el GPS como una herramienta para mantenimiento y logística, los empleados pueden sentir que están siendo "vigilados" y que la empresa desconfía de ellos. ¿Vale más la eficiencia económica que la confianza y moral del empleado? La ética nos exige cuestionar si las herramientas de control invaden la privacidad o dañan el tejido humano de la organización.</p>
+        </div>
+
+        <h3 class="sub-title">¿Qué hacen los gerentes?</h3>
+        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Planeación estratégica" class="img-left">
+        <p>No hay dos trabajos gerenciales exactamente iguales, pero los investigadores han desarrollado tres enfoques principales para describir la labor gerencial: las funciones, los roles y las habilidades.</p>
+
+        <h4>1. Funciones de la Administración (Enfoque de Henri Fayol)</h4>
+        <p>A principios del siglo XX, Henri Fayol propuso que todos los gerentes realizan ciertas actividades comunes. Hoy, esas actividades se agrupan en cuatro funciones esenciales:</p>
+        <ul>
+            <li><strong>Planeación:</strong> Establecer metas, definir estrategias para alcanzarlas y desarrollar planes para integrar y coordinar actividades. Si no sabemos a dónde vamos, cualquier camino nos llevará allí; la planeación marca la ruta.</li>
+            <li><strong>Organización:</strong> Determinar qué tareas hay que realizar, quién las llevará a cabo, cómo se agruparán, quién reportará a quién y en qué nivel se tomarán las decisiones. Es estructurar el trabajo.</li>
+            <li><strong>Dirección:</strong> Trabajar con y a través de las personas. Incluye motivar a los subordinados, influir en los individuos o equipos, seleccionar el canal de comunicación adecuado y manejar el comportamiento del personal.</li>
+            <li><strong>Control:</strong> Dar seguimiento, comparar el desempeño real contra los objetivos y corregir cualquier desviación. Sin control, la planeación y la organización pierden su sentido.</li>
+        </ul>
+
+        <h4>2. Roles Gerenciales (Enfoque de Henry Mintzberg)</h4>
+        <p>Mintzberg estudió a gerentes reales y concluyó que lo que hacen se puede describir en 10 roles (patrones de comportamiento), divididos en tres categorías:</p>
+        <ul>
+            <li><strong>Roles Interpersonales:</strong> Involucran a personas y deberes ceremoniales (Representante, Líder, Enlace).</li>
+            <li><strong>Roles Informativos:</strong> Tienen que ver con reunir, recibir y transmitir información (Monitor, Difusor, Portavoz).</li>
+            <li><strong>Roles Decisorios:</strong> Conllevan la toma de decisiones y elecciones (Emprendedor, Manejador de problemas/disturbios, Asignador de recursos, Negociador).</li>
+        </ul>
+
+        <h4>3. Habilidades de los Gerentes (Enfoque de Robert L. Katz)</h4>
+        <p>Los gerentes necesitan tres tipos de habilidades básicas, cuya importancia varía según su nivel en la organización:</p>
+        <ul>
+            <li><strong>Habilidades Técnicas:</strong> Conocimiento y pericia en un campo especializado. Son fundamentales para los gerentes de primera línea.</li>
+            <li><strong>Habilidades Humanas:</strong> Capacidad para trabajar bien con otras personas, individualmente y en grupo. Son vitales en todos los niveles, ya que todos los gerentes tratan directamente con personas.</li>
+            <li><strong>Habilidades Conceptuales:</strong> Capacidad para pensar y conceptualizar sobre situaciones abstractas y complejas. Ayudan al gerente a ver la organización como un todo. Son cruciales para la alta gerencia.</li>
+        </ul>
+
+        <h3 class="sub-title">Cambios que afectan el trabajo de los gerentes</h3>
+        
+        <p>El mundo actual está cambiando rápidamente. Los gerentes enfrentan la digitalización (teletrabajo, virtualidad), el aumento en las amenazas a la seguridad, un mayor énfasis en la responsabilidad y la ética, y un mercado ferozmente competitivo. Dos áreas destacan enormemente en la nueva gestión:</p>
+        <ul>
+            <li><strong>La importancia de los clientes:</strong> La responsabilidad por el servicio al cliente ya no es exclusiva del departamento de marketing. Las actitudes de los empleados dictan la satisfacción del cliente. Un buen gerente debe construir una organización sensible al cliente.</li>
+            <li><strong>La innovación:</strong> Hacer las cosas de manera diferente, tomar riesgos y explorar nuevos territorios es vital para sobrevivir. Como se suele decir, el riesgo más grande en los negocios de hoy es no innovar.</li>
+        </ul>
+
+        <figure class="figure-center">
+            <img src="figura_1_8.png" alt="Figura 1-8: Cambios que enfrentan los gerentes" class="img-center">
+            <figcaption>Figura 1-8: Resumen de los cambios que enfrentan los gerentes y su respectivo impacto.</figcaption>
+        </figure>
+
+        <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Liderazgo y organización" class="img-right">
+
+        <h3 class="sub-title">¿Qué es una organización?</h3>
+        <p>Los gerentes operan en organizaciones. Una organización es un acuerdo deliberado de personas para llevar a cabo un propósito específico. Todas las organizaciones comparten tres características: (1) un <strong>propósito definido</strong> (metas), (2) están formadas por <strong>personas</strong>, y (3) cuentan con una <strong>estructura deliberada</strong> que dirige el comportamiento de sus miembros. Las organizaciones de hoy tienden a ser más abiertas, flexibles y adaptables que en el pasado.</p>
+
+        <h3 class="sub-title">¿Por qué estudiar administración? y Retos del Gerente</h3>
+        <p>Hay tres razones innegables para estudiar administración: la universalidad de la administración (es necesaria en todas partes, en todos los niveles y en todo el mundo), la realidad del trabajo (usted administrará o será administrado) y las recompensas y retos del puesto.</p>
+        <ul>
+            <li><strong>Retos:</strong> Es un trabajo duro, a veces ingrato. Lidiar con múltiples personalidades, tolerar la ambigüedad, motivar a la gente en el caos y, a menudo, depender del desempeño de otros para medir el propio éxito.</li>
+            <li><strong>Recompensas:</strong> Ayudar a los demás a crecer y encontrar sentido en su labor, influir directamente en los resultados de la empresa, ser reconocido, obtener prestigio y construir un equipo de trabajo exitoso y cohesionado. Los buenos gerentes cambian la vida de sus empleados.</li>
+        </ul>
+
+    </div>
+
+    <!-- PUNTO 2: GERENTES REALES -->
+    <div class="concept-card clearfix">
+        <h2 class="section-title">Reseñas y Aportes de Gerentes Reales</h2>
+        <p>Conectar la teoría con la práctica es vital. A continuación, vemos cómo gerentes reales aplican estos conceptos en sus respectivos campos de acción:</p>
+        
+        <div class="grid-2">
+            <div class="manager-card">
+                <h3>Rosita Nunez</h3>
+                <p><strong>Puesto:</strong> Gerente de Marketing, Lonza Inc., Allendale, New Jersey.</p>
+                <p><strong>Aporte y Reflexión:</strong> Ella maneja el desarrollo comercial en productos de cuidado personal. Entiende que el éxito depende de sus <em>habilidades humanas</em> y relacionales. Su mayor reto es lidiar con variables fuera de su control (como costos de materias primas), pero lo sobrelleva con un excelente consejo gerencial: <em>"Utiliza todos los recursos, en especial a la gente, de forma respetuosa y eficiente. Trata bien a las personas, exactamente como quisieras que te trataran."</em> Esto personifica el enfoque moderno donde la empatía fomenta la eficiencia grupal.</p>
+            </div>
+
+            <div class="manager-card">
+                <h3>Dickie Townley</h3>
+                <p><strong>Puesto:</strong> Gerente de Salud Ambiental y Seguridad, Holly Energy Partners, LP.</p>
+                <p><strong>Aporte y Reflexión:</strong> Como encargado de oleoductos y terminales, debe asegurar tanto la eficiencia operativa como el bienestar humano. Se enfoca intensamente en el liderazgo. Según Townley: <em>"Se espera que los gerentes dirijan. Para dirigir se debe ser competente, comprender el negocio y ser capaz de comunicarse. Un buen líder no siempre es gerente, pero un buen gerente siempre es un líder."</em> Sus palabras validan la postura de que las habilidades de liderazgo son intrínsecas a las funciones gerenciales.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PUNTO 3: CASOS PRÁCTICOS COMPLETOS -->
+    <div class="concept-card clearfix">
+        <h2 class="section-title">Casos Prácticos en el Campo</h2>
+        <p>Estudie detenidamente los siguientes casos reales y conteste las preguntas de análisis a continuación.</p>
+
+        <div class="case-card" style="margin-bottom: 30px;">
+            <h3>Caso Práctico 1: El dilema de un gerente (Allyson Koteski - Toys R Us)</h3>
+            <p>Allyson Koteski ama su trabajo como gerente de la tienda Toys R Us en Annapolis, Maryland. Adora los juguetes, el caos y el ruido que hacen muchísimos niños. Incluso ama las largas e intensas horas de las agotadoras temporadas de vacaciones. Debido a que la rotación de personal es un asunto importante en el mundo de las ventas al detalle, Allyson también disfruta el reto de mantener motivados y comprometidos a sus empleados para que no renuncien; y los clientes que ocasionalmente se disgustan tampoco la perturban. Escucha con paciencia sus problemas y trata de resolverlos de manera satisfactoria. Así es la vida de Allyson como gerente.</p>
+            <p>Sin embargo, los minoristas saben que personas con las habilidades y el entusiasmo de Allyson para administrar una tienda son pocas y difíciles de encontrar. A pesar de que el salario promedio anual estimado por el Bureau of Labor Statistics es de aproximadamente $84,000, manejar una tienda minorista no es la carrera a la que aspiran la mayoría de los graduados universitarios. Atraer y mantener gerentes talentosos sigue siendo un reto para Toys R Us y otros minoristas. Suponga que está a cargo del reclutamiento de personal para una gran cadena de tiendas minoristas y quisiera lograr que graduados universitarios consideraran la administración de tiendas como una opción de carrera.</p>
+            
+            <div style="background-color: #f4f6f7; padding: 15px; border-left: 4px solid #f39c12; margin-top: 15px;">
+                <h4 style="margin-top: 0; color: #d35400;">Pregunta de Análisis:</h4>
+                <ol>
+                    <li><strong>¿Usted qué haría para lograr que la administración de tiendas minoristas sea atractiva para los jóvenes graduados universitarios? Defina qué habilidades o características resaltaría en el proceso de reclutamiento.</strong></li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="case-card">
+            <h3>Caso Práctico 2: Cómo dirigir a los cazadores de virus (Symantec)</h3>
+            <p>Imagine cómo sería la vida si su producto nunca estuviera terminado, si nunca completara su trabajo, si su mercado cambiara 30 veces al día. Los cazadores de virus de computadoras de Symantec Corp. no tienen que imaginarlo. Esa es la realidad de su vida laboral diaria. En el Laboratorio de Respuesta de la compañía en Santa Mónica, California, descrito como la “más sucia de todas nuestras redes Symantec”, los analistas de software recolectan virus y otros códigos sospechosos e intentan averiguar cómo funcionan para que la empresa pueda proporcionar actualizaciones de seguridad a sus clientes. Incluso hay un cuadro de materiales peligrosos en la puerta del laboratorio, marcado como PELIGRO, donde colocan todos los discos, cintas y discos duros con los desagradables virus que tienen que eliminar por completo. La situación de Symantec podría parecer única, pero la empresa, la cual produce contenido y software de seguridad para redes tanto para consumidores como para negocios, refleja la realidad que enfrentan muchas organizaciones actuales: el rápido cambio de las expectativas del cliente y el surgimiento continuo de competidores globales que han acortado drásticamente los ciclos de vida de los productos. Dirigir a personas talentosas en tales entornos puede resultar otro reto enorme.</p>
+            <p>Vincent Weafer, originario de Irlanda, ha sido el líder del equipo de cazadores de virus de Symantec desde 1999. Retrocediendo a ese entonces expresó, “había menos de dos docenas de personas y… realmente nada pasaba. Veíamos tal vez cinco nuevos virus al día, y se dispersaban en cuestión de meses, no de minutos”. Ahora los cazadores de virus de Symantec alrededor del mundo lidian con aproximadamente 20,000 muestras de virus cada mes, y no todos son virus únicos y autónomos. Para hacer el trabajo de los cazadores aún más interesante, los ataques a computadoras se están esparciendo cada vez más gracias a criminales que quieren robar información corporativa o personal de los usuarios para cometer fraudes. Para lidiar con estos asuntos críticos y sensibles al tiempo se requiere de talentos especiales. El equipo del centro de respuesta es un grupo diverso cuyos miembros no fueron fáciles de encontrar. Weafer decía “no se trata de que las universidades cada año estén formando expertos en seguridad o en anti-malware para que podamos contratarlos. Si los encuentras en cualquier parte del mundo, simplemente ve por ellos”. El carácter del equipo del centro de respuesta refleja eso. Por ejemplo, uno de los investigadores más antiguos es originario de Hungría, otro de Islandia y otro más trabaja desde su casa en Melbourne, Florida. Pero todos ellos comparten algo en común: todos se motivan resolviendo problemas.</p>
+            <p>El lanzamiento del gusano Blaster-B cambió el enfoque de la compañía para manejar virus. El efecto dominó del Blaster-B y otros brotes de virus provocaron que los analistas de software de primera línea estuvieran trabajando contra reloj por casi dos semanas. Que los “empleados se quemaran” hizo que la compañía se diera cuenta de que su equipo de cazadores de virus ahora tenía que ser mucho más fuerte, más talentoso. Ahora, el equipo del centro de respuesta es de cientos, y los gerentes pueden rotar personal de las primeras líneas, que son responsables de responder a las nuevas amenazas de seguridad que surgen, en grupos donde pueden ayudar con el desarrollo de nuevos productos. Otros escriben artículos internos de investigación y otros son asignados al desarrollo de nuevas herramientas que ayudarán a sus colegas a repeler la siguiente ola de amenazas. Hay incluso un individuo que trata de averiguar lo que motiva a los creadores de virus; y el día nunca termina para estos cazadores de virus. Cuando el equipo de Santa Mónica termina su día, los colegas en Tokio los relevan. Cuando el equipo japonés termina su día, entra el equipo de Dublín, al cual luego releva el de Santa Mónica para un nuevo día. Es un entorno laboral frenético, caótico y de reto que se dispersa por todo el mundo. Pero Weafer decía que sus objetivos eran “tratar de eliminar el caos, para hacer de lo excitante algo aburrido”, para tener un proceso bien definido y predecible, lidiar con las amenazas de virus y distribuir el trabajo equitativamente en las oficinas de la compañía en todo el mundo. Éste es un reto gerencial que Weafer ha adoptado.</p>
+            
+            <div style="background-color: #f4f6f7; padding: 15px; border-left: 4px solid #f39c12; margin-top: 15px;">
+                <h4 style="margin-top: 0; color: #d35400;">Preguntas de Análisis:</h4>
+                <ol>
+                    <li><strong>Mantener a los profesionales entusiasmados con el trabajo que es rutinario, estandarizado y caótico es un reto importante para Vincent Weafer. ¿Cómo podría utilizar las habilidades técnicas, humanas y conceptuales para mantener un entorno que impulse la innovación y el profesionalismo entre los cazadores de virus?</strong></li>
+                    <li><strong>¿Qué roles gerenciales desempeñaría Vincent al (a) atender reuniones informativas de seguridad semanales vía llamadas en conferencia con compañeros de trabajo de todo el mundo, (b) evaluar la factibilidad de agregar un nuevo servicio de consultoría de seguridad de redes, y (c) mantener a los empleados enfocados en los compromisos de la compañía con los clientes?</strong></li>
+                    <li><strong>Investigue y analice la filosofía de una empresa tecnológica similar a Symantec. ¿De qué forma la organización apoya a sus empleados para que den un mejor servicio y sean altamente innovadores?</strong></li>
+                    <li><strong>¿Qué podrían aprender otros gerentes de Vincent Weafer y de su enfoque para "hacer de lo excitante algo aburrido"?</strong></li>
+                </ol>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- PUNTO 4: HISTORIA DE LA ADMINISTRACIÓN -->
+    <div class="concept-card clearfix">
+        <h2 class="section-title">4. Historia de la Administración: Evolución y Enfoques</h2>
+        
+        <p>Para comprender la administración actual, es esencial conocer su evolución histórica. Las prácticas gerenciales tienen miles de años, pero su estudio formal comenzó más recientemente. A continuación, se presentan los enfoques históricos más destacados que han dado forma a la administración contemporánea, basándonos en la obra de Robbins y Coulter:</p>
+
+        <h3 class="sub-title">Antecedentes Históricos</h3>
+        <p>Mucho antes de que existiera la teoría formal de la administración, ya había ejemplos de grandes proyectos estructurados. La construcción de las pirámides de Egipto y la Gran Muralla China requirieron la coordinación de decenas de miles de personas durante décadas. Estas monumentales obras fueron posibles gracias a individuos que planificaban lo que se debía hacer, organizaban a las personas y los materiales, y dirigían a los trabajadores. Dos eventos previos al siglo XX fueron especialmente cruciales para el desarrollo gerencial:</p>
+        <ul>
+            <li><strong>La división del trabajo (Adam Smith):</strong> En su obra "La riqueza de las naciones" (1776), Smith analizó la fabricación de alfileres y propuso que la división del trabajo (dividir las tareas en pasos simples y repetitivos) aumentaba enormemente la productividad. Demostró que la especialización permitía a los trabajadores desarrollar mayor destreza, ahorrar el tiempo perdido al cambiar de tarea y fomentar la invención de maquinaria especializada.</li>
+            <li><strong>La Revolución Industrial:</strong> Iniciada a finales del siglo XVIII, provocó que el poder de las máquinas sustituyera a la fuerza humana. Esto hizo más económico producir bienes en grandes fábricas que en los hogares. Como resultado, nació la necesidad imperiosa de gerentes que pudieran coordinar estas operaciones a gran escala, pronosticar la demanda, asegurar el suministro continuo de materias primas, asignar tareas diarias y garantizar el mantenimiento de los equipos.</li>
+        </ul>
+
+        <style>
+            .author-card {
+                background: #fff;
+                border: 1px solid #e1e8ed;
+                border-radius: 8px;
+                margin-top: 20px;
+                margin-bottom: 25px;
+                overflow: hidden;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+                transition: transform 0.2s;
+            }
+            .author-card:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            }
+            .author-header {
+                background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+                color: white;
+                padding: 15px 20px;
+                font-family: 'Segoe UI', sans-serif;
+            }
+            .author-header.conductual {
+                background: linear-gradient(135deg, #27ae60, #2ecc71);
+            }
+            .author-header h4 {
+                margin: 0;
+                color: #fff;
+                font-size: 1.4rem;
+            }
+            .author-header .author-title {
+                font-size: 0.95rem;
+                opacity: 0.9;
+                font-weight: 300;
+                margin-top: 5px;
+            }
+            .author-body {
+                padding: 20px;
+            }
+            .author-body h5 {
+                color: var(--accent-color);
+                margin-top: 0;
+                font-size: 1.15rem;
+                margin-bottom: 10px;
+            }
+            .didactic-box {
+                background-color: #f0f7fb;
+                border-left: 4px solid var(--accent-color);
+                padding: 15px;
+                margin: 15px 0;
+                border-radius: 0 4px 4px 0;
+            }
+            .didactic-box.conductual-box {
+                background-color: #eafaf1;
+                border-left-color: #27ae60;
+            }
+            .didactic-box h6 {
+                margin: 0 0 10px 0;
+                color: var(--accent-color);
+                font-size: 1.05rem;
+                font-family: 'Segoe UI', sans-serif;
+                text-transform: uppercase;
+            }
+            .didactic-box.conductual-box h6 {
+                color: #27ae60;
+            }
+            .author-body ul, .author-body ol {
+                margin-top: 0;
+            }
+        </style>
+
+        <h3 class="sub-title">El Enfoque Clásico</h3>
+        <p>A principios del siglo XX, surgió el primer esfuerzo formal para desarrollar un cuerpo sólido de conocimientos sobre la administración. Este enfoque buscaba hacer a las organizaciones lo más eficientes posible. Destacan dos ramas principales: la <strong>Escuela de la Administración Científica</strong> (enfocada en el trabajador individual) y la <strong>Teoría Clásica de la Organización</strong> (enfocada en la administración general de la empresa).</p>
+
+        <h4 style="color: var(--primary-color); margin-top: 30px; font-size: 1.8rem; border-bottom: 2px solid #ddd; padding-bottom: 5px;">I. La Escuela de la Administración Científica</h4>
+
+        <!-- Tarjeta de Taylor -->
+        <div class="author-card">
+            <div class="author-header">
+                <h4>Frederick W. Taylor</h4>
+                <div class="author-title">El Padre de la Administración Científica</div>
+            </div>
+            <div class="author-body">
+                <p>Ante la escasez de mano de obra en EE.UU. a principios del siglo XX, Taylor revolucionó la industria fundamentando su filosofía en una <strong>"revolución mental"</strong>. Afirmó que tanto obreros como patrones debían cooperar para elevar la productividad y las utilidades, en lugar de pelear por ellas.</p>
+                <h5>Principales Teorías (Sus 4 Principios):</h5>
+                <ol>
+                    <li><strong>Ciencia, no regla empírica:</strong> Desarrollar una verdadera ciencia de la administración para determinar el mejor método para cada tarea.</li>
+                    <li><strong>Selección científica:</strong> Seleccionar científicamente a los trabajadores para que cada uno sea responsable de la tarea para la cual tenga más aptitudes.</li>
+                    <li><strong>Educación científica:</strong> Educar y desarrollar al trabajador de forma científica.</li>
+                    <li><strong>Cooperación amistosa:</strong> Mantener una cooperación estrecha y amistosa entre obreros y patrones.</li>
+                </ol>
+                <h5>Aportes Clave:</h5>
+                <ul>
+                    <li><strong>Estudios de tiempo:</strong> Analizó y tomó el tiempo de los movimientos de trabajadores siderúrgicos, dividiendo los trabajos en componentes para diseñar el método más rápido.</li>
+                    <li><strong>Sistema de tasas diferenciales:</strong> Un sistema de remuneración que pagaba salarios más altos a los trabajadores más eficientes que superaban los parámetros de resultados anteriores.</li>
+                </ul>
+                <div class="didactic-box" style="background-color: #fceceb; border-left-color: #e74c3c;">
+                    <h6 style="color: #c0392b;">⚠️ Limitaciones y Críticas:</h6>
+                    <p>Produjo oposición de sindicatos por las condiciones "aceleradas", la presión desmedida para trabajar a mayor velocidad y el temor a que la eficiencia agotaría el trabajo disponible conduciendo a recortes de personal. Se le criticó fuertemente por descuidar el lado humano a favor de la rentabilidad.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjeta de Gantt -->
+        <div class="author-card">
+            <div class="author-header">
+                <h4>Henry L. Gantt</h4>
+                <div class="author-title">Pionero en la Planificación y Motivación</div>
+            </div>
+            <div class="author-body">
+                <p>Trabajó con Taylor, pero abandonó el sistema de tasas diferenciales por considerarlo de muy poca motivación y desarrolló sus propios esquemas buscando un mayor estímulo.</p>
+                <h5>Aportes Clave:</h5>
+                <ul>
+                    <li><strong>Sistema de incentivos / bonificaciones:</strong> Propuso una bonificación diaria (50 centavos) si el trabajador cumplía su cuota. Además, el <em>supervisor</em> obtenía una bonificación por cada trabajador que cumpliera, y un bono extraordinario si todos lo hacían, motivando a los supervisores a capacitar mejor a su personal.</li>
+                    <li><strong>La Gráfica de Gantt:</strong> Un instrumento innovador que registraba visualmente (en negro cuando el trabajador llegaba al parámetro y en rojo cuando no) el avance individual y servía para calendarizar la producción. Sentó las bases para sistemas de control modernos (CPM y PERT).</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Tarjeta de Gilbreth -->
+        <div class="author-card">
+            <div class="author-header">
+                <h4>Frank y Lillian Gilbreth</h4>
+                <div class="author-title">Estudio del Movimiento, Fatiga y Potencial Humano</div>
+            </div>
+            <div class="author-body">
+                <p>Un equipo de marido y mujer que colaboraron integrando la técnica ingenieril con un fuerte enfoque en cómo mejorar el bienestar del trabajador individual para ayudarle a desarrollar todo su potencial humano.</p>
+                <h5>Aportes Clave:</h5>
+                <ul>
+                    <li><strong>Estudio de Movimientos y Fatiga:</strong> Argumentaban que el movimiento y la fatiga estaban entrelazados; al eliminar movimientos innecesarios, se reducía la fatiga. Utilizaron cámaras de cine para encontrar la mayor economía de movimientos posible para cada tarea.</li>
+                    <li><strong>Enfoque en el Trabajador:</strong> Afirmaban que el estudio minucioso de movimientos mejoraría el ánimo de los trabajadores debido a los beneficios físicos evidentes y porque demostraba genuina preocupación de la gerencia por su bienestar.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="didactic-box" style="background-color: #e8f6f3; border-left-color: #1abc9c; margin-bottom: 40px;">
+            <h6 style="color: #16a085;">💡 Caso Práctico Ilustrativo: Eficiencia y La Fábrica (Ford)</h6>
+            <p>La máxima expresión de estos conceptos se aplicó en 1913 en Highland Park, cuando Ford introdujo la <strong>línea de montaje en movimiento</strong> moderna, siguiendo consejos sobre eficiencia que el propio Taylor profetizó. Al dividir el ensamblaje de un magneto de 20 minutos por hombre a 29 operaciones mecánicas especializadas, el tiempo bajó a 13 minutos. El ensamblaje del chasis del Modelo T pasó de 728 horas a 93 minutos. El espectacular éxito productivo llevó a reducir drásticamente los costos, duplicar el salario y producir autos para las masas. Sin embargo, trajo retos enormes de represión sindical y paternalismo.</p>
+        </div>
+
+        <h4 style="color: var(--primary-color); margin-top: 30px; font-size: 1.8rem; border-bottom: 2px solid #ddd; padding-bottom: 5px;">II. Escuela de la Teoría Clásica de la Organización</h4>
+
+        <!-- Tarjeta de Fayol -->
+        <div class="author-card">
+            <div class="author-header">
+                <h4>Henri Fayol</h4>
+                <div class="author-title">Fundador de la Escuela Clásica</div>
+            </div>
+            <div class="author-body">
+                <p>Mientras Taylor se interesaba primordialmente por las funciones de la organización y la planta industrial, el francés Fayol se interesaba por la <em>organización total</em> y se enfocaba hacia la administración general empresarial, pensando que las prácticas administrativas siguen patrones estructurados que se pueden enseñar ("los gerentes no nacen, se hacen").</p>
+                <h5>Los 14 Principios de la Administración:</h5>
+                <ul style="font-size: 0.95rem; display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <li><strong>1. División del trabajo:</strong> Especialización aumenta eficiencia.</li>
+                    <li><strong>2. Autoridad:</strong> Derecho a mandar formal y personal.</li>
+                    <li><strong>3. Disciplina:</strong> Respeto a las reglas de la empresa.</li>
+                    <li><strong>4. Unidad de mando:</strong> Recibir órdenes de un solo jefe.</li>
+                    <li><strong>5. Unidad de dirección:</strong> Un gerente y un plan por objetivo.</li>
+                    <li><strong>6. Subordinación del interés individual:</strong> Bien común sobre el personal.</li>
+                    <li><strong>7. Remuneración:</strong> Retribución justa.</li>
+                    <li><strong>8. Centralización:</strong> Grado adecuado de toma de decisiones.</li>
+                    <li><strong>9. Jerarquía (Cadena escalar):</strong> Línea de autoridad clara.</li>
+                    <li><strong>10. Orden:</strong> Cada material/persona en su lugar adecuado.</li>
+                    <li><strong>11. Equidad:</strong> Administradores amables y justos.</li>
+                    <li><strong>12. Estabilidad del personal:</strong> Evitar la alta rotación.</li>
+                    <li><strong>13. Iniciativa:</strong> Libertad para concebir y realizar planes.</li>
+                    <li><strong>14. Espíritu de grupo:</strong> Fomentar la unión y el trabajo en equipo.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Tarjeta de Weber -->
+        <div class="author-card">
+            <div class="author-header">
+                <h4>Max Weber</h4>
+                <div class="author-title">El Modelo de Burocracia</div>
+            </div>
+            <div class="author-body">
+                <p>Este sociólogo alemán desarrolló una teoría de la administración de burocracias que subrayaba la necesidad de una jerarquía definida en términos muy estrictos, con líneas de autoridad claras, ideal para administrar organizaciones gigantescas orientadas a metas.</p>
+                <h5>Características de la Burocracia Ideal:</h5>
+                <ul>
+                    <li><strong>Selección Formal:</strong> Contratar basándose totalmente en la competencia técnica y en el mérito.</li>
+                    <li><strong>Reglas y Regulaciones:</strong> Procedimientos estandarizados y líneas de autoridad regidas por reglamentos definidos con toda claridad.</li>
+                    <li><strong>Impersonalidad:</strong> Eficiencia impersonal que en ocasiones concedía menos importancia a las necesidades humanas.</li>
+                    <li><strong>División del Trabajo:</strong> División profunda de actividades y objetivos explícitos.</li>
+                </ul>
+            </div>
+        </div>
+
+        <h4 style="color: var(--primary-color); margin-top: 30px; font-size: 1.8rem; border-bottom: 2px solid #ddd; padding-bottom: 5px;">III. Transición hacia el Comportamiento Humano (Precursores)</h4>
+
+        <!-- Tarjeta de Follett -->
+        <div class="author-card">
+            <div class="author-header">
+                <h4>Mary Parker Follett</h4>
+                <div class="author-title">Precursora del Enfoque "Holístico" y de Grupos</div>
+            </div>
+            <div class="author-body">
+                <p>Introdujo conceptos revolucionarios sobre las relaciones humanas. Afirmaba que la administración era <em>"el arte de hacer las cosas mediante personas"</em>. Partía de oscurecer la diferencia artificial entre gerentes (que ordenan) y subordinados (que acatan), proponiendo una asociación natural.</p>
+                <h5>Aportes Clave:</h5>
+                <ul>
+                    <li><strong>Fuerza de Grupo:</strong> Creía firmemente que ninguna persona se siente completa a no ser que forme parte de un grupo y que combinando diversos talentos se logra algo mayor.</li>
+                    <li><strong>Modelo Holístico:</strong> Preparó el camino para la visión sistémica, incorporando explícitamente el entorno de la organización (política, economía, biología), no solo la estructura interna.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Tarjeta de Barnard -->
+        <div class="author-card">
+            <div class="author-header">
+                <h4>Chester I. Barnard</h4>
+                <div class="author-title">Organización Informal y la Zona de Indiferencia</div>
+            </div>
+            <div class="author-body">
+                <p>Aprovechó sus vastos conocimientos de sociología y filosofía (y su experiencia como presidente de Bell en Nueva Jersey) para formular teorías afirmando que una empresa solo subsiste si las metas de la organización guardan equilibrio con los propósitos y necesidades de los individuos que trabajan en ella.</p>
+                <h5>Aportes Clave:</h5>
+                <ul>
+                    <li><strong>La Organización Informal:</strong> Reconoció que dentro de la organización formal, las personas se reúnen en grupos informales (hasta pandillas) para lograr fines que no pueden alcanzar solas. La gerencia debe usar estos grupos con eficacia, aún si a veces parecen contrarios.</li>
+                    <li><strong>La Zona de Indiferencia (Área de Aceptación):</strong> La propensión de los empleados a aceptar u obedecer órdenes sin cuestionar la autoridad del gerente, siempre que caigan dentro de un rango conocido de responsabilidades.</li>
+                    <li><strong>Fines Morales:</strong> Pensaba que los ejecutivos tienen la obligación absoluta de imbuir en sus empleados un sentimiento a favor de fines morales (objetivos nobles empresariales).</li>
+                </ul>
+            </div>
+        </div>
+
+        <h3 class="sub-title">El Enfoque Conductual</h3>
+        <p>A medida que las empresas crecían, se notó que la eficiencia no sólo dependía de las máquinas, sino fundamentalmente de los empleados. Este enfoque reconoció que las personas son el activo más importante. El campo que estudia las acciones de las personas en el trabajo se denomina <strong>Comportamiento Organizacional (CO)</strong>.</p>
+
+        <!-- Tarjeta de Mayo -->
+        <div class="author-card">
+            <div class="author-header conductual">
+                <h4>Elton Mayo</h4>
+                <div class="author-title">El Descubridor del Lado Humano (Estudios de Hawthorne)</div>
+            </div>
+            <div class="author-body">
+                <p>Junto a pioneros como Robert Owen o Mary Parker Follett, Elton Mayo fue el psicólogo industrial responsable de cambiar la visión de los gerentes: los empleados dejaron de verse como "piezas de una máquina" para entenderse como "seres sociales complejos".</p>
+                <h5>Principales Teorías:</h5>
+                <p>Lideró los legendarios <strong>Estudios de Hawthorne</strong> en la planta de Western Electric. Descubrió que las presiones sociales, la necesidad de ser aceptado por el grupo y la atención que los gerentes prestan a los empleados tienen un impacto mucho mayor en la productividad que los incentivos económicos o las condiciones físicas del trabajo.</p>
+                <div class="didactic-box conductual-box">
+                    <h6>💡 El Efecto Hawthorne (El experimento de la luz):</h6>
+                    <p>En 1924, quisieron probar si mejorar la iluminación aumentaba la productividad de las obreras. Aumentaron la luz y la productividad subió. ¡Éxito! Pero luego, como prueba, <em>bajaron</em> la luz a niveles casi de penumbra... ¡y la productividad volvió a subir! ¿Por qué? Porque las obreras no reaccionaban a la luz física, reaccionaban al hecho de sentirse <strong>observadas, importantes y valoradas</strong> por participar en el experimento. Descubrieron que un trabajador feliz y motivado produce más que uno simplemente bien pagado.</p>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="sub-title">El Enfoque Cuantitativo</h3>
+        <p>También llamado ciencia de la administración, este enfoque evolucionó a partir de las soluciones matemáticas y estadísticas desarrolladas para resolver complejos problemas logísticos y militares durante la Segunda Guerra Mundial.</p>
+        <ul>
+            <li><strong>Herramientas matemáticas:</strong> Involucra el uso de modelos de optimización, programación lineal, teoría de colas y simulaciones computarizadas. Por ejemplo, ayuda a los gerentes a decidir los niveles exactos de inventario, asignar el capital de inversión o a optimizar las rutas de transporte minimizando costos.</li>
+            <li><strong>Administración de la Calidad Total (TQM):</strong> Promovida por expertos como W. Edwards Deming, la TQM es una filosofía de administración profundamente enfocada en la mejora continua y en responder a las expectativas del cliente. Utiliza métodos estadísticos para medir la calidad en cada paso del proceso productivo y prevenir defectos antes de que ocurran.</li>
+        </ul>
+
+        <h3 class="sub-title">Enfoques Contemporáneos</h3>
+        <p>A partir de la década de 1960, los teóricos se dieron cuenta de que los enfoques anteriores estaban demasiado centrados en el interior de la empresa. Los enfoques contemporáneos comenzaron a mirar hacia el entorno externo:</p>
+        <ul>
+            <li><strong>Enfoque de Sistemas:</strong> Concibe a la organización como un <em>sistema abierto</em>. La empresa toma insumos (recursos humanos, financieros, materia prima) del entorno externo, los transforma internamente, y los devuelve como bienes o servicios al entorno. Este enfoque subraya el concepto de <strong>sinergia</strong> (el todo es mayor que la suma de sus partes) y enseña que las decisiones en un departamento (ej. recursos humanos) afectarán inevitablemente a los demás (ej. producción o ventas).</li>
+            <li><strong>Enfoque de Contingencias (Situacional):</strong> Desafía la idea clásica de que existen reglas de administración universales e infalibles. Propone que "no existe una única mejor forma de administrar". Las organizaciones son diversas y enfrentan situaciones o variables de contingencia diferentes (tamaño, tecnología, incertidumbre ambiental, tipo de mercado). Por lo tanto, el estilo gerencial debe adaptarse utilizando una lógica de "Si se presenta la situación X, entonces es mejor aplicar la acción Y".</li>
+        </ul>
+    </div>
+
+</div>
+
+<footer>
+    <p>Material de Análisis Académico - Extensión de Lectura para Estudiantes de Administración.<br>Basado en los primeros 5 capítulos/conceptos iniciales de <strong>Administración (10ma Edición)</strong> de Stephen P. Robbins y Mary Coulter.</p>
+</footer>
+
+</body>
+</html>
